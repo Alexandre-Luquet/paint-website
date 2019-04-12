@@ -5,11 +5,16 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ *
+ * @UniqueEntity(fields={"username"},
+ * message="Ce pseudo est déjà prit, merci d'en choisir un autre")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -25,16 +30,20 @@ class User
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="Le prénom est obligatoire")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="Le nom est obligatoire")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="L'email est obligatoire")
+     * @Assert\Email(message="Email invalide")
      */
     private $email;
 
@@ -53,6 +62,15 @@ class User
      * @ORM\Column(type="string", length=20)
      */
     private $role = 'ROLE_USER';
+
+    /**
+     * Mot de passe en clair pour interagir avec le formulaire
+     *
+     * @var string
+     *
+     * @Assert\NotBlank(message="Le mot de passe est obligatoire")
+     */
+    private $plainPassword;
 
     public function __construct()
     {
@@ -127,6 +145,25 @@ class User
     /**
      * @return string
      */
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param string $plainPassword
+     * @return User
+     */
+    public function setPlainPassword(string $plainPassword): User
+    {
+        $this->plainPassword = $plainPassword;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getRole(): string
     {
         return $this->role;
@@ -142,6 +179,9 @@ class User
         return $this;
     }
 
+    public function __toString(){
+        return $this->firstname . ' ' . $this->lastname;
+    }
 
 
     /**
@@ -173,5 +213,47 @@ class User
         }
 
         return $this;
+    }
+
+    /**
+     * Returns the roles granted to the user.
+     *
+     *     public function getRoles()
+     *     {
+     *         return ['ROLE_USER'];
+     *     }
+     *
+     * Alternatively, the roles might be stored on a ``roles`` property,
+     * and populated in any number of different ways when the user object
+     * is created.
+     *
+     * @return (Role|string)[] The user roles
+     */
+    public function getRoles()
+    {
+        return [$this->role];
+    }
+
+    /**
+     * Returns the salt that was originally used to encode the password.
+     *
+     * This can return null if the password was not encoded using a salt.
+     *
+     * @return string|null The salt
+     */
+    public function getSalt()
+    {
+
+    }
+
+    /**
+     * Removes sensitive data from the user.
+     *
+     * This is important if, at any given point, sensitive information like
+     * the plain-text password is stored on this object.
+     */
+    public function eraseCredentials()
+    {
+
     }
 }
