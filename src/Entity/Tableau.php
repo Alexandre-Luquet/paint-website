@@ -48,6 +48,11 @@ class Tableau
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $format;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -145,6 +150,18 @@ class Tableau
                 $comment->setTableau(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFormat(): ?string
+    {
+        return $this->format;
+    }
+
+    public function setFormat(string $format): self
+    {
+        $this->format = $format;
 
         return $this;
     }
