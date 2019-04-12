@@ -188,6 +188,7 @@ nav ul{
         transform: rotateY(180deg);
         transform-origin: top left;
         transition: transform 650ms cubic-bezier(0.55, 0.55, 0.675, 0.19);
+        z-index: 10;
     }
 
     nav ul{
@@ -215,4 +216,99 @@ nav ul{
         opacity: 1;
         transform: scaleX(1);
     }
+}
+
+
+/*--------------------------------------------------------------------------------------------------------
+                                          START SLIDER
+ ---------------------------------------------------------------------------------------------------------*/
+.overlait{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    background:  linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.25));
+}
+
+
+.pic-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    background:  linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.25));
+}
+
+.pic-link {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 35%;
+    z-index: 10;
+    position: absolute;
+}
+
+.pic-link a {
+    border: 1px solid;
+    background: none;
+    color: #7356FF;
+    padding: 12px 50px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+}
+
+.pic-link a:hover{
+    background: #000000;
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.first-btn {
+    animation: btn 2s;
+}
+
+.pic-title {
+    color: #fff;
+    font-size: 5rem;
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2.8rem;
+}
+.first {
+    animation: anime 2s;
+}
+
+@keyframes anime {
+    0% {
+        transform: rotateY(90deg);
+        opacity: .2;
+    } 50% {
+          transform: rotateX(60deg);
+          opacity: 1;
+      } to {
+            transform: rotateX(360deg);
+            opacity: 5;
+        }
+}
+
+@keyframes btn{
+    0% {
+        transform: rotateX(100deg);
+        opacity: .2;
+    } 30% {
+          transform: rotateX(200deg);
+          opacity: 4;
+      } 60% {
+            transform: rotate3d(0, 1, 0.5, 3.142rad);
+            opacity: 2;
+        } to {
+              transform: rotateZ(360deg);
+              opacity: 4;
+          }
 }
