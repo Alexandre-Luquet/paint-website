@@ -90,7 +90,7 @@ nav{
     height: 6rem;
     line-height: 6rem;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     text-transform: uppercase;
     background-color: #fff;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
@@ -102,6 +102,15 @@ nav ul{
     list-style: none;
 }
 
+a > i {
+    padding-right: 8px !important;
+    color: black;
+}
+
+.separator
+{
+    width: 200px;
+}
 .nav-link{
     font-size: 1.5rem;
     color: mediumslateblue;
@@ -168,7 +177,7 @@ nav ul{
     }
 }
 
-@media screen and (max-width: 875px)
+@media screen and (max-width: 1189px)
 {
     header{
         perspective: 75rem;
@@ -179,7 +188,7 @@ nav ul{
         position: absolute;
         top: 0;
         left: 0;
-        width: 29rem;
+        width: 50%;
         height: 65vh;
         line-height: initial;
         flex-direction: column;
@@ -198,6 +207,19 @@ nav ul{
 
     .nav-item:nth-child(n){
         animation: initial;
+    }
+
+    .nav-link::after{
+        background-color: mediumslateblue;
+        content: attr(data-text);
+        position: absolute;
+        left: 42.5%;
+        bottom: -100%;
+        padding: inherit;
+        color: #fff;
+        transform: rotateX(-90deg);
+        transform-origin: top;
+        font-size: 1.7rem;
     }
 
     .nav-link{
