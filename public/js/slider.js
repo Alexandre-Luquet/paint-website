@@ -6,5 +6,9 @@ $(document).ready(function() {
         pagination: false
     });
 
+    $('#slides').superslides(
+        onmousemoves
+    )
+
 
 });
