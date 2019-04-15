@@ -1,46 +1,106 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<header>
-    <div class="menu">
-        <div class="bar"></div>
-    </div>
-    <div class="overlay"></div>
-    <nav>
-        <ul>
+    <header>
+        <div class="menu">
+            <div class="bar"></div>
+        </div>
+        <div class="overlay"></div>
+        <nav>
+            <ul>
 
-            <li class="nav item">
-                <a href="" class="nav-link" data-text="Accueil">Accueil</a>
-            </li>
-            <li class="nav item">
-                <a href="" class="nav-link" data-text="Bio">Bio</a>
-            </li>
-            <li class="nav item">
-                <a href="" class="nav-link" data-text="Blog">Blog</a>
-            </li>
-            <li class="nav item">
-                <a href="" class="nav-link" data-text="Gallerie">Gallerie</a>
-            </li>
-            <li class="nav item">
-                <a href="" class="nav-link" data-text="Expo">Expo</a>
-            </li>
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Accueil">Accueil</a>
+                </li>
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Bio">Bio</a>
+                </li>
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Blog">Blog</a>
+                </li>
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Gallerie">Gallerie</a>
+                </li>
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Expo">Expo</a>
+                </li>
 
-            <li class="nav item">
-                <a href="" class="nav-link" data-text="Presse">Presse</a>
-            </li>
-            <li class="nav item">
-                <a href="" class="nav-link" data-text="Contact">Contact</a>
-            </li>
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Presse">Presse</a>
+                </li>
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Contact">Contact</a>
+                </li>
 
-            <li class="nav item inscription">
-                <a href="" class="nav-link" data-text="Inscription">Inscription</a>
-            </li>
-            <li class="nav item connecter">
-                <a href="" class="nav-link" data-text="Se connecter">Se connecter</a>
-            </li>
-        </ul>
-    </nav>
-</header>
+                <div class="separator"></div>
+
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Connexion"><i class="fas fa-sign-in-alt"></i>Connexion</a>
+                </li>
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Inscription"><i class="fab fa-wpforms"></i>Inscription</a>
+                </li>
+            </ul>
+        </nav>
+        <!------------------------------------------------------------
+                                START SLIDER
+        --------------------------------------------------------------->
+        <div id="slides">
+
+
+            <div class="slides-container">
+                <div class="pic-titre">
+                    <img src="images/tamara.jpg" alt="">
+                    <div class="pic-div">
+                        <p class="pic-title first">TITRE DE LA PHOTO</p>
+                    </div>
+                    <div class="pic-link first-btn">
+                        <a href="#">READ MORE</a>
+                    </div>
+                </div>
+                <div class="pic-titre">
+                    <img src="images/zulty.jpg" alt="">
+                    <div class="pic-div">
+                        <p class="pic-title">TITRE DE LA PHOTO</p>
+                    </div>
+                    <div class="pic-link">
+                        <a href="#">READ MORE</a>
+                    </div>
+                </div>
+                <div class="pic-titre">
+                    <img src="images/frankie-cordoba-557829-unsplash.jpg" alt="">
+                    <div class="pic-div">
+                        <p class="pic-title">TITRE DE LA PHOTO</p>
+                    </div>
+                    <div class="pic-link">
+                        <a href="#">READ MORE</a>
+                    </div>
+                </div>
+                <div class="pic-titre">
+                    <img src="images/zulty.jpg" alt="">
+                    <div class="pic-div">
+                        <p class="pic-title">TITRE DE LA PHOTO</p>
+                    </div>
+                    <div class="pic-link">
+                        <a href="#">READ MORE</a>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/tamara.jpg" alt="">
+                    <div class="pic-div">
+                        <p class="pic-title">TITRE DE LA PHOTO</p>
+                    </div>
+                    <div class="pic-link">
+                        <a href="#">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-----------------------------------------------------------------
+                                    END SLIDER
+        ------------------------------------------------------------------->
+    </header>
 
 
 {% endblock %}
+
