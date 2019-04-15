@@ -6,7 +6,7 @@
 parameters:
     locale: 'fr'
     # donne la racine du projet et donc le repertoir d'images
-    biographie_directory: 'images/biographie/'
+    biographie_directory: '%kernel.project_dir%/public/images/biographie/'
 
 services:
     # default configuration for services in *this* file

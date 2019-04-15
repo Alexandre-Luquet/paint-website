@@ -5,6 +5,7 @@
 
     {{ form_start(form) }}
     {{ form_row(form.photo) }}
+    <img src="{{ asset('/images/biographie/' ~ original_image) }}">
     {{ form_row(form.description) }}
     <div class="text-right">
         <button type="submit" class="btn btn-primary">

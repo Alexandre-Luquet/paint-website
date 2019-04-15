@@ -31,7 +31,7 @@ class BiographieType extends AbstractType
                 FileType::class,
                 [
                     'label' => 'Votre photo',
-                    'data_class' => null
+                    'required' => false
                 ]);
 
     }

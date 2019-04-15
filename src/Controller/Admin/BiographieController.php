@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Routing\Annotation\Route;
 
 // use nécessaire pour faire une réponse de "test"
@@ -70,6 +71,19 @@ class BiographieController extends AbstractController
             $biographie = new Biographie();
         }
 
+        if(!is_null($biographie->getPhoto())) {
+            // nom du fichier venant de la bdd
+            $originalImage = $biographie->getPhoto();
+
+            // on sette l'image avec un objet file sur l'emplacement de l'image pour le traitement par le formulaire
+            $biographie->setPhoto(
+                new File($this->getParameter('biographie_directory') . $originalImage)
+            );
+dump($biographie->getPhoto());
+        }
+
+
+
         $form = $this->createForm(BiographieType::class, $biographie);
 
         $form->handleRequest($request);
@@ -83,21 +97,28 @@ class BiographieController extends AbstractController
                 /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
                 //$file = $biographie->getPhoto();
                 $file = $form['photo']->getData();
-                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-                try {
+                if(!is_null($file)) {
+                    $fileName = $this->generateUniqueFileName() . '.' . $file->guessExtension();
+
                     $file->move(
-                        
+
                         $this->getParameter('biographie_directory'),
                         $fileName
                     );
-                } catch (FileException $e) {
-                    // ... handle exception if something happens during file upload
-                }
 
-                // updates the 'brochure' property to store the PDF file name
-                // instead of its contents
-                $biographie->setPhoto($fileName);
-                $biographie->setPhoto($this->getParameter('biographie_directory') . $fileName);
+
+                    // updates the 'brochure' property to store the PDF file name
+                    // instead of its contents
+                    $biographie->setPhoto($fileName);
+
+                    if (!is_null($originalImage)) {
+                        unlink($this->getParameter('biographie_directory') . $originalImage);
+                    }
+                    //$biographie->setPhoto($this->getParameter('biographie_directory') . $fileName);
+                } else{
+                    // en modif, sans upload, on sette l'attribut image avec le nom de l'ancienne image
+                    $biographie->setPhoto($originalImage);
+                }
 
                 // Enregistre en base les données issues du formulaire
                 $em = $this->getDoctrine()->getManager();
@@ -116,7 +137,8 @@ class BiographieController extends AbstractController
         // Si pas de formulaire 'soumis' afficher le formulaire de mise à jour / saisie
         return $this->render('Admin/biographie/input.html.twig',
             [
-                'form' => $form->createView()
+                'form' => $form->createView(),
+                'original_image' => $originalImage
             ]
         );
     }

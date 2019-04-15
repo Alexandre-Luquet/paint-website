@@ -31,12 +31,12 @@ class Biographie
         return $this->id;
     }
 
-    public function getPhoto(): ?string
+    public function getPhoto()
     {
         return $this->photo;
     }
 
-    public function setPhoto(string $photo): self
+    public function setPhoto($photo): self
     {
         $this->photo = $photo;
 
