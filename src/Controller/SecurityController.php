@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
@@ -56,5 +57,35 @@ class SecurityController extends AbstractController
                 'form' => $form->createView()
             ]
         );
+    }
+
+    /**
+     * @param AuthenticationUtils $authenticationUtils
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/connexion")
+     */
+    public function login(AuthenticationUtils $authenticationUtils){
+
+        // traitement du formulaire par Security
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        if(!empty($error)){
+            $this->addFlash('error', 'Identifiants incorrects');
+        }
+
+        return $this->render('security/login.html.twig',
+            [
+                'last_username' => $lastUsername
+            ]);
+
+    }
+
+    /**
+     * @Route("/deconnexion")
+     */
+    public function logout(){
+
     }
 }

@@ -10,7 +10,7 @@ security:
             # les utilisateurs sont des entites User
             entity:
                 class: App\Entity\User
-                # l'identifiant est email
+                # l'identifiant est le pseudo
                 property: username
     firewalls:
         dev:

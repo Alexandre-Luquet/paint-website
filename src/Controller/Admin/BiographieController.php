@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,7 +21,7 @@ use App\Form\BiographieType;
 class BiographieController extends AbstractController
 {
     /**
-     * @Route("/biographie", name="biographie")
+     * @Route("/biographie")
      */
     public function show()
     {
@@ -41,8 +41,8 @@ class BiographieController extends AbstractController
         $image = $bio->getPhoto();
         $texte = $bio->getDescription();
 
-        return new Response('<strong>Photo employée pour la biographie : </strong>'. $image.
-            '<br><strong>Le contenu de la biographie : </strong>' . $texte);
+        //return new Response('<strong>Photo employée pour la biographie : </strong>'. $image.
+        //'<br><strong>Le contenu de la biographie : </strong>' . $texte);
 
         return $this->render('biographie/index.html.twig', [
             'controller_name' => 'BiographieController',
