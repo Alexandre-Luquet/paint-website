@@ -252,6 +252,11 @@ a > i {
     height: 59% !important;
 }
 
+.slides-container img {
+    background-size: cover;
+    background-repeat: NO-REPEAT;
+}
+
 .pic-div {
     display: flex;
     justify-content: center;
