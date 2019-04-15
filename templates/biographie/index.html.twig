@@ -4,6 +4,56 @@
 
 {% block body %}
 <header>
+    {# NAV ADMIN #}
+    {% if is_granted('ROLE_ADMIN') %}
+    <div class="menu">
+        <div class="bar"></div>
+    </div>
+    <div class="overlay"></div>
+    <header>
+        <div class="menu">
+            <div class="bar"></div>
+        </div>
+        <div class="overlay"></div>
+        <nav>
+            <ul>
+
+                <li class="nav item">
+                    <a href="{{ path('app_index_index') }}" class="nav-link" data-text="Accueil">Accueil</a>
+                </li>
+                <li class="nav item">
+                    <a href="{{ path('app_admin_biographie_show') }}" class="nav-link" data-text="Bio">Bio</a>
+                </li>
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Blog">Blog</a>
+                </li>
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Gallerie">Gallerie</a>
+                </li>
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Expo">Expo</a>
+                </li>
+
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Presse">Presse</a>
+                </li>
+                <li class="nav item">
+                    <a href="" class="nav-link" data-text="Contact">Contact</a>
+                </li>
+
+                <div class="separator"></div>
+
+                <li class="nav item">
+                    <a href="{{ path('app_security_login') }}" class="nav-link" data-text="Connexion"><i class="fas fa-sign-in-alt"></i>Gestion Admin</a>
+                    {# Menu dropdown a faire#}
+                </li>
+
+                <li class="nav item">
+                    <a href="{{ path('app_security_logout') }}" class="nav-link" data-text="Inscription"><i class="fab fa-wpforms"></i>Déconnexion</a>
+                </li>
+            </ul>
+        </nav>
+        {% endif %}
     <div class="menu">
         <div class="bar"></div>
     </div>
@@ -45,20 +95,17 @@
         </ul>
     </nav>
 
-    <div id="apropos">
 
-        <div class="profilepic"></div>
-        <div class="texteap">
-            <h2>Présentation</h2>
-            <hr class="hr1">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, explicabo provident. Ad voluptatem facilis eligendi, ullam dolorum quae ex deserunt inventore excepturi dolores autem consequuntur earum similique, ipsam quidem adipisci!
-                Laborum eum animi voluptate id dolor perspiciatis quidem eaque, nam officiis commodi mollitia nobis qui eius, corporis labore quam nesciunt corrupti! Fugiat odit velit dolores quaerat voluptate molestiae nesciunt sequi.
-                Maxime assumenda et deserunt ea! Dolorem doloribus soluta labore possimus laborum, culpa dignissimos eum sed saepe dicta porro quia corrupti nobis pariatur vitae aperiam nam nulla? Deleniti dolores repudiandae unde?
-                Autem quis eveniet velit, eos adipisci natus. Perspiciatis iure porro quia earum maxime sunt quisquam ut assumenda omnis unde. Dolorum excepturi at consequuntur sunt aspernatur, officia placeat accusantium alias iure.
-                Praesentium magnam tempore ut quibusdam maxime quod cum, deserunt saepe beatae blanditiis aliquam dolore veritatis eligendi nisi recusandae, optio incidunt, amet id fugit minus ad deleniti nulla? Harum, eveniet ea!</p>
-
-        </div> <!-- texteap -->
-    </div> <!--div A propos -->
-
-
-{% endblock %}
+    <div class="container bio">
+        <div class="row">
+            <div class="col-12"><h2 class="text-center py-5">Présentation</h2></div>
+            <div class="col-md-3 bio-image">
+                <div class="profile-pic"><img src=""></div>
+            </div>
+            <div class="col-md-9 bio-texte">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias consequatur corporis, cumque dicta doloribus eum exercitationem magnam necessitatibus qui, quidem, quisquam repellendus repudiandae sint sunt temporibus ullam voluptas voluptate! Ad aliquam at beatae consectetur distinctio ducimus, eius fugiat harum hic inventore ipsum iste itaque, labore laudantium maxime molestiae nihil nisi obcaecati perferendis perspiciatis recusandae ut veritatis vitae? Quaerat, vero. Alias consequatur distinctio dolore, est fugiat fugit, id impedit itaque, laboriosam natus obcaecati perferendis perspiciatis quam quia saepe veniam voluptatum! Ad autem deserunt dolor illo, impedit in mollitia natus porro? Accusamus accusantium architecto, aspernatur at corporis culpa cumque delectus dolorem dolores eaque error eum eveniet explicabo fuga impedit ipsum iure maiores modi nesciunt perferendis quasi qui quod tempore veniam voluptates?</p>
+            </div>
+        </div>
+    </div>
+    </header>
+    {% endblock %}
