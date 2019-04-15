@@ -66,14 +66,18 @@ class BiographieController extends AbstractController
             ->getRepository(Biographie::class)
             ->find($id);
 
+        if (is_null($biographie)) {
+            $biographie = new Biographie();
+        }
+
         $form = $this->createForm(BiographieType::class, $biographie);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
             if($form->isValid()){
-                $directory = "images/biographie";
-                $newFilename = "photo.jpg";
+                //$directory = "images/biographie";
+                //$newFilename = "photo.jpg";
 
                 // Traitement de la photo : recopie du fichier dans le répertoire images puis chemin d'accès dans le champ photo
                 /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
@@ -82,6 +86,7 @@ class BiographieController extends AbstractController
                 $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
                 try {
                     $file->move(
+                        
                         $this->getParameter('biographie_directory'),
                         $fileName
                     );
@@ -100,7 +105,7 @@ class BiographieController extends AbstractController
                 $em->flush();
 
                 // Redirection vers la page de la biographie
-                return $this->redirectToRoute('biographie');
+                return $this->redirectToRoute('app_admin_biographie_show');
 
             }else{
                 // Affichage du message d'erreur
@@ -109,7 +114,7 @@ class BiographieController extends AbstractController
         }
 
         // Si pas de formulaire 'soumis' afficher le formulaire de mise à jour / saisie
-        return $this->render('biographie/input.html.twig',
+        return $this->render('Admin/biographie/input.html.twig',
             [
                 'form' => $form->createView()
             ]
