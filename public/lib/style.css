@@ -291,17 +291,8 @@ a > i {
     margin: 0 auto;
 }
 
-<<<<<<< HEAD
-#slider .slides {
-    display: block;
-    width: 6000px;
-    height: 400px;
-    margin: 0;
-    padding: 0;
-=======
-.slides-container {
-    height: 59% !important;
-}
+
+
 
 .slides-container img {
     background-size: cover;
@@ -344,7 +335,6 @@ a > i {
     background: #000000;
     color: #fff;
     font-size: 1.4rem;
->>>>>>> 8b5345eac9ce1a2a7f14483d974b10c731d1d59c
 }
 
 #slider .slide {

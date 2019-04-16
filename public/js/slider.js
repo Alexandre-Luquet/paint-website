@@ -2,7 +2,6 @@
 
 $(function() {
 
-<<<<<<< HEAD
     //settings for slider
     var width = 720;
     var animationSpeed = 2000;
@@ -36,10 +35,4 @@ $(function() {
 
     startSlider();
 
-
-=======
-    $('#slides').superslides(
-        onmousemoves
-    )
->>>>>>> 8b5345eac9ce1a2a7f14483d974b10c731d1d59c
 });
