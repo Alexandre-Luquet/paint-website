@@ -7,7 +7,7 @@
 }
 
 html{
-    font-size: 10px;
+    font-size: 16px;
     font-family: "Roboto", sans-serif;
 }
 
@@ -32,10 +32,10 @@ header{
 }
 
 .menu{
-    padding: 2rem 2.5rem;
+    padding: 1.3rem 1.5rem;
     position: fixed;
-    top: 1rem;
-    right: 1rem;
+    top: 0.7rem;
+    right: 0.7rem;
     background-color: #fff;
     z-index: 1000;
     border-radius: 3px;
@@ -60,11 +60,11 @@ header{
 }
 
 .bar::before{
-    top: -2rem;
+    top: -1.3rem;
 }
 
 .bar::after{
-    top: 2rem;
+    top: 1.3rem;
 }
 
 .open .bar{
@@ -86,8 +86,8 @@ header{
 
 nav{
     width: 100%;
-    height: 6rem;
-    line-height: 6rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
     display: flex;
     justify-content: space-around;
     text-transform: uppercase;
@@ -111,10 +111,10 @@ a > i {
     width: 200px;
 }
 .nav-link{
-    font-size: 1.5rem;
+    font-size: 0.95rem;
     color: mediumslateblue;
-    margin-right: 2rem;
-    padding: 0 1rem;
+    margin-right: 1.3rem;
+    padding: 0 0.7rem;
     display: block;
     position: relative;
     transform-style: preserve-3d;
@@ -176,10 +176,10 @@ a > i {
     }
 }
 
-@media screen and (max-width: 1189px)
+@media screen and (max-width: 1140px)
 {
     header{
-        perspective: 75rem;
+        perspective: 48rem;
         overflow: hidden;
     }
 
@@ -187,7 +187,7 @@ a > i {
         position: absolute;
         top: 0;
         left: 0;
-        width: 50%;
+        width: 40%;
         height: 65vh;
         line-height: initial;
         flex-direction: column;
@@ -201,7 +201,8 @@ a > i {
 
     nav ul{
         flex-direction: column;
-        margin-top: -5rem;
+        margin-top: -1.8rem;
+        padding-top: 1.6rem;
     }
 
     .nav-item:nth-child(n){
@@ -218,11 +219,12 @@ a > i {
         color: #fff;
         transform: rotateX(-90deg);
         transform-origin: top;
-        font-size: 1.7rem;
+        font-size: 1.1rem;
     }
 
     .nav-link{
-        margin: 2rem 0;
+        margin: 1rem 0;
+        font-size: 0.7rem;
     }
 
     header.open nav{
@@ -245,26 +247,37 @@ a > i {
                                             BIO
  ---------------------------------------------------------------------------------------------------------*/
 
-.bio{
-    margin-top: 4%
-}
-
-.profile-pic{
+.about{
+    margin: 3em 0;
+    padding: 1em;
     position: relative;
 }
 
-.bio-texte{
-    font-family: "Roboto", sans-serif;
-    font-size: 2rem;
+.about img{
+    height: 70%;
+    width: 80%;
+    border-radius: 50%
 }
 
-.bio-image{
-    display: flex;
-    justify-content: flex-start;
-    align-content: flex-start;
-    align-items: center;
-    border: 2px solid black;
-    border-radius: 20px;
+.desc{
+    padding: 2em;
+    border-left:4px solid mediumorchid;
+}
+
+.desc h3{
+    font-size: 1.4rem;
+    color: mediumorchid;
+}
+
+.h3-bio{
+    color: slateblue;
+    font-size: 2.6rem;
+    font-weight: 600;
+}
+.p-bio{
+    line-height:2;
+    color:#888;
+    font-size: 1.3rem;
 }
 
 /*--------------------------------------------------------------------------------------------------------
