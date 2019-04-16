@@ -8,6 +8,7 @@ parameters:
     # donne la racine du projet et donc le repertoir d'images
     biographie_directory: '%kernel.project_dir%/public/images/biographie/'
     galerie_directory: '%kernel.project_dir%/public/images/galerie/'
+    article_directory: '%kernel.project_dir%/public/images/article/'
 
 services:
     # default configuration for services in *this* file
