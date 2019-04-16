@@ -43,5 +43,5 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # Toutes les pages dont l'url commence par /admin ne sont accessibles qu'aux admins (ROLE_ADMIN)
-        - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
