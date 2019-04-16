@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1 class="text-center"> Edition des Oeuvres </h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.titre) }}
+    {{ form_row(form.image) }}
+    {{ form_row(form.annee) }}
+    {{ form_row(form.technique) }}
+    {{ form_row(form.format) }}
+    {{ form_row(form.description) }}
+
+    {% if original_image is not null %}
+        <p>
+            Actuellement :
+            <img src="{{ asset('images/galerie/' ~ original_image) }}" height="200px">
+        </p>
+    {% endif %}
+
+    <div class="text-right">
+        <button type="submit" class="btn btn-primary">
+            Enregistrer
+        </button>
+        <a href="{{ path('app_admin_tableau_index') }}" class="btn btn-outline-secondary">
+            Retour
+        </a>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}
+

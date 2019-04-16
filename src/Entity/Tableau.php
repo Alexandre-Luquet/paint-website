@@ -53,6 +53,11 @@ class Tableau
      */
     private $format;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $publicationDate;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -162,6 +167,18 @@ class Tableau
     public function setFormat(string $format): self
     {
         $this->format = $format;
+
+        return $this;
+    }
+
+    public function getPublicationDate(): ?\DateTimeInterface
+    {
+        return $this->publicationDate;
+    }
+
+    public function setPublicationDate(\DateTimeInterface $publicationDate): self
+    {
+        $this->publicationDate = $publicationDate;
 
         return $this;
     }

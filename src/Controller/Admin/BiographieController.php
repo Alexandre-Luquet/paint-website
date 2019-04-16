@@ -22,38 +22,6 @@ use App\Form\BiographieType;
 class BiographieController extends AbstractController
 {
     /**
-     * @Route("/biographie")
-     */
-    public function show()
-    {
-        $id = 1;
-        // Récupération de la première ligne de la table biographie (1 seul enregistrement prévu)
-        $bio = $this->getDoctrine()
-            ->getRepository(Biographie::class)
-            ->find($id);
-
-        // Message d'erreur si je n'ai pas trouvé la ligne, donc base non initialisée
-        if (!$bio) {
-            throw $this->createNotFoundException(
-                "Pas de biographie trouvée avec l'id  " . $id . " en base de données"
-            );
-        }
-
-        $image = $bio->getPhoto();
-        $texte = $bio->getDescription();
-
-        //return new Response('<strong>Photo employée pour la biographie : </strong>'. $image.
-        //'<br><strong>Le contenu de la biographie : </strong>' . $texte);
-
-        return $this->render('biographie/index.html.twig', [
-            'controller_name' => 'BiographieController',
-            'image' => $image,
-            'texte' => $texte,
-            'alt' => "Photo de l'artiste",
-        ]);
-    }
-
-    /**
      * @Route("/biographie/edit")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
@@ -126,7 +94,7 @@ dump($biographie->getPhoto());
                 $em->flush();
 
                 // Redirection vers la page de la biographie
-                return $this->redirectToRoute('app_admin_biographie_show');
+                return $this->redirectToRoute('app_biographieshow_show');
 
             }else{
                 // Affichage du message d'erreur

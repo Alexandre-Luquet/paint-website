@@ -1,5 +1,6 @@
 selector(".menu").addEventListener('click', function()
 {
+    console.log('click');
     this.classList.toggle('open');
 
     selector('header').classList.toggle('open');
