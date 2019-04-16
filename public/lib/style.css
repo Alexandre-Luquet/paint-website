@@ -23,7 +23,7 @@ header{
 
 .overlay{
     width: 100%;
-    height: 65vh;
+    height: auto;
     background-color: rgba(0,0,0,.85);
     position: fixed;
     transform: scaleY(0);
@@ -189,7 +189,7 @@ a > i {
         top: 0;
         left: 0;
         width: 40%;
-        height: 65vh;
+        height: auto;
         line-height: initial;
         flex-direction: column;
         box-shadow: none;
@@ -224,8 +224,8 @@ a > i {
     }
 
     .nav-link{
-        margin: 1rem 0;
-        font-size: 0.7rem;
+        margin: 0.93rem 0;
+        font-size: 0.65rem;
     }
 
     header.open nav{
