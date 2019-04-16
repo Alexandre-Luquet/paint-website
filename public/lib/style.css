@@ -17,8 +17,9 @@ a{
 
 header{
     width: 100%;
-    height: 65vh;
+    height: 61vh;
     position: relative;
+    background: #F5F1FF;
 }
 
 .overlay{
@@ -296,70 +297,32 @@ p {
 /*--------------------------------------------------------------------------------------------------------
                                           START SLIDER
  ---------------------------------------------------------------------------------------------------------*/
-#slides {
-    width: 60% !important;
+#slider {
+    width: 720px;
+    height: 400px;
+    overflow: hidden;
     margin: 0 auto;
 }
 
-.slides-container {
-    height: 59% !important;
+#slider .slides {
+    display: block;
+    width: 6000px;
+    height: 400px;
+    margin: 0;
+    padding: 0;
 }
 
-.slides-container img {
-    background-size: cover;
-    background-repeat: NO-REPEAT;
+#slider .slide {
+    float: left;
+    list-style-type: none;
+    width: 720px;
+    height: 400px;
 }
 
-.pic-div {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 3;
-    background:  linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.25));
-}
-
-.pic-link {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 35%;
-    z-index: 10;
-    position: absolute;
-}
-
-.pic-link a {
-    border: 1px solid;
-    background: none;
-    color: #7356FF;
-    padding: 12px 50px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.5s;
-    font-size: 2rem;
-    letter-spacing: 0.5rem;
-}
-
-.pic-link a:hover{
-    background: #000000;
-    color: #fff;
-    font-size: 1.4rem;
-}
-
-.first-btn {
-    animation: btn 2s;
-}
-
-.pic-title {
-    color: #fff;
-    font-size: 5rem;
-    font-family: 'Fjalla One', sans-serif;
-    font-weight: 600;
-    letter-spacing: 2.8rem;
-}
-.first {
-    animation: anime 2s;
+.slide img {
+    height: 400px;
+    width: auto;
+    overflow: hidden;
 }
 
 @keyframes anime {
@@ -390,3 +353,72 @@ p {
               opacity: 4;
           }
 }
+
+
+/*--------------------------------------------------------------------------------------------------------
+                                            START MAIN PRESENTATION
+----------------------------------------------------------------------------------------------------------*/
+
+
+.containner {
+    width: 100%;
+    display: flex;
+    margin-top: 2%;
+    background: #F7F4FF;
+}
+
+.resume {
+    display: flex;
+    width: 60%;
+}
+
+.image {
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.image img {
+    margin: 10px;
+    height: 450px;
+    width: 360px;
+}
+
+.pic {
+    display: flex;
+    flex-wrap: wrap;
+    width: 40%;
+    background: green;
+}
+
+.para {
+    margin-left: 20px;
+    width: 60%;
+}
+
+.para p {
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.pic div {
+    width: 50%;
+}
+
+.p {
+    background: black;
+}
+
+.l {
+    background: yellow;
+}
+
+.m {
+    background: mediumvioletred;
+}
+
+
+/*--------------------------------------------------------------------------------------------------------
+                                            END MAIN PRESENTATION
+----------------------------------------------------------------------------------------------------------*/
