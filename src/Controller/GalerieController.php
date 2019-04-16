@@ -6,23 +6,19 @@ use App\Entity\Tableau;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/tableau")
- */
-class TableauController extends AbstractController
+class GalerieController extends AbstractController
 {
     /**
-     * @Route("/all")
+     * @Route("/galerie", name="galerie")
      */
-    public function galerie()
+    public function index()
     {
+
         $galerie = $this->getDoctrine()->getRepository(Tableau::class)->findAll();
 
         return $this->render('galerie/index.html.twig', [
             'controller_name' => 'GalerieController',
             'galerie' => $galerie,
         ]);
-
     }
-
 }
