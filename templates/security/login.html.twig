@@ -1,33 +1,85 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+ {# NAV  #}
+        {% if is_granted('ROLE_USER') %}
+<div class="menu">
+    <div class="bar"></div>
+</div>
+<div class="overlay"></div>
 <header>
-    {# NAV ADMIN #}
-    {% if is_granted('ROLE_ADMIN') %}
+    <nav>
+        <ul>
+            <li class="nav item">
+                <a href="{{ path('app_index_index') }}" class="nav-link" data-text="Accueil">Accueil</a>
+            </li>
+
+            <li class="nav item">
+                <a href="{{ path('app_admin_biographie_show') }}" class="nav-link" data-text="Bio">Bio</a>
+            </li>
+
+            <li class="nav item">
+                <a href="" class="nav-link" data-text="Blog">Blog</a>
+            </li>
+
+            <li class="nav item">
+                <a href="" class="nav-link" data-text="Gallerie">Galerie</a>
+            </li>
+
+            <li class="nav item">
+                <a href="" class="nav-link" data-text="Expo">Expo</a>
+            </li>
+
+            <li class="nav item">
+                <a href="" class="nav-link" data-text="Presse">Presse</a>
+            </li>
+
+            <li class="nav item">
+                <a href="" class="nav-link" data-text="Contact">Contact</a>
+            </li>
+            <div class="separator"></div>
+
+            <li class="nav-item dropdown">
+                <a href="" class="nav-link dropdown-toggle" id="menuadmin" role="button" data-toggle="dropdown" data-text="Admin"><i class="fas fa-user-shield"></i>Admin</a>
+                <div class="dropdown-menu" aria-labelledby="menuadmin">
+                    <a class="dropdown-item" href="">Gestion</a>
+                    <a class="dropdown-item" href="">Gestion</a>
+                    <a class="dropdown-item" href="">Gestion</a>
+                    <a class="dropdown-item" href="">Gestion</a>
+                </div>
+            </li>
+
+            <li class="nav item">
+                <a href="{{ path('app_security_logout') }}" class="nav-link" data-text="Deconnexion"><i class="fab fa-wpforms"></i>Deconnexion</a>
+            </li>
+        </ul>
+    </nav>
+
+    {# NAV USER #}
+    {% elseif is_granted('ROLE_USER') %}
     <div class="menu">
         <div class="bar"></div>
     </div>
     <div class="overlay"></div>
     <header>
-        <div class="menu">
-            <div class="bar"></div>
-        </div>
-        <div class="overlay"></div>
         <nav>
             <ul>
-
                 <li class="nav item">
                     <a href="{{ path('app_index_index') }}" class="nav-link" data-text="Accueil">Accueil</a>
                 </li>
+
                 <li class="nav item">
                     <a href="{{ path('app_admin_biographie_show') }}" class="nav-link" data-text="Bio">Bio</a>
                 </li>
+
                 <li class="nav item">
                     <a href="" class="nav-link" data-text="Blog">Blog</a>
                 </li>
+
                 <li class="nav item">
                     <a href="" class="nav-link" data-text="Gallerie">Gallerie</a>
                 </li>
+
                 <li class="nav item">
                     <a href="" class="nav-link" data-text="Expo">Expo</a>
                 </li>
@@ -35,47 +87,42 @@
                 <li class="nav item">
                     <a href="" class="nav-link" data-text="Presse">Presse</a>
                 </li>
+
                 <li class="nav item">
                     <a href="" class="nav-link" data-text="Contact">Contact</a>
                 </li>
-
                 <div class="separator"></div>
 
                 <li class="nav item">
-                    <a href="{{ path('app_security_login') }}" class="nav-link" data-text="Connexion"><i class="fas fa-sign-in-alt"></i>Gestion Admin</a>
-                    {# Menu dropdown a faire#}
-                </li>
-
-                <li class="nav item">
-                    <a href="{{ path('app_security_logout') }}" class="nav-link" data-text="Inscription"><i class="fab fa-wpforms"></i>Déconnexion</a>
+                    <a href="{{ path('app_security_register') }}" class="nav-link" data-text="Deconnexion"><i class="fab fa-wpforms"></i>Deconnexion</a>
                 </li>
             </ul>
         </nav>
-        {% endif %}
+
+        {% else %}
         <div class="menu">
             <div class="bar"></div>
         </div>
         <div class="overlay"></div>
         <header>
-            <div class="menu">
-                <div class="bar"></div>
-            </div>
-            <div class="overlay"></div>
             <nav>
                 <ul>
-
                     <li class="nav item">
-                        <a href="{{ path('app_index_index') }}" class="nav-link" data-text="Accueil">Accueil</a>
+                        <a href="{{ path('app_index_index') }}" class="nav-link" data-text="Home">Home</a>
                     </li>
+
                     <li class="nav item">
                         <a href="{{ path('app_admin_biographie_show') }}" class="nav-link" data-text="Bio">Bio</a>
                     </li>
+
                     <li class="nav item">
                         <a href="" class="nav-link" data-text="Blog">Blog</a>
                     </li>
+
                     <li class="nav item">
-                        <a href="" class="nav-link" data-text="Gallerie">Gallerie</a>
+                        <a href="" class="nav-link" data-text="Galerie">Galerie</a>
                     </li>
+
                     <li class="nav item">
                         <a href="" class="nav-link" data-text="Expo">Expo</a>
                     </li>
@@ -83,40 +130,52 @@
                     <li class="nav item">
                         <a href="" class="nav-link" data-text="Presse">Presse</a>
                     </li>
+
                     <li class="nav item">
                         <a href="" class="nav-link" data-text="Contact">Contact</a>
                     </li>
-
                     <div class="separator"></div>
 
                     <li class="nav item">
                         <a href="{{ path('app_security_login') }}" class="nav-link" data-text="Connexion"><i class="fas fa-sign-in-alt"></i>Connexion</a>
                     </li>
+
                     <li class="nav item">
                         <a href="{{ path('app_security_register') }}" class="nav-link" data-text="Inscription"><i class="fab fa-wpforms"></i>Inscription</a>
                     </li>
                 </ul>
             </nav>
-    <h1>Connexion</h1>
+            {% endif %}
+
+
+    <h1 class="text-center mt-5">Connexion</h1>
     {% for message in app.flashes('error') %}
-        <div class="flash-error">
+        <div class="flash-error mt-5">
             {{ message }}
         </div>
     {% endfor %}
 
-    <form method="post">
-        <div class="form-group">
+
+    <div class="container">
+        <div class="row"></div>
+        <div class="col-md-8 mx-auto">
+    <form class="mt-2" method="post">
+        <div class="form-group mt-3">
             <label>Pseudo</label>
-            <input type="text" name="_username" class="form-control" value="{{ last_username }}">
+            <input type="text" name="_username" class="form-control" value="{{ last_username }}"><br>
             <label>Mot de passe</label>
             <input type="password" name="_password" class="form-control">
         </div>
-        <div class="text-right">
+        <div class="text-right mt-1 mr-2">
             <button type="submit" class="btn btn-primary">
                 Se connecter
             </button>
         </div>
     </form>
+        </div>
+    </div>
+    </div>
+
 
 {% endblock %}
 
