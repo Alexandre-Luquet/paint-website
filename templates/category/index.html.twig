@@ -3,7 +3,14 @@
 {% block title %}Catégorie d'articles{% endblock %}
 
 {% block body %}
-
+        {# NAV  #}
+<div class="menu">
+    <div class="bar"></div>
+</div>
+<div class="overlay"></div>
+<header>
+    {% include 'nav.html.twig' %}
+</header>
     <h1>{{ category.name }}</h1>
 
 {% endblock %}
