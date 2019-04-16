@@ -1,8 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-    <h1 class="text-center"> Edition des Oeuvres </h1>
+            {# NAV  #}
+<div class="menu">
+    <div class="bar"></div>
+</div>
+<div class="overlay"></div>
+<header>
+    {% include 'nav.html.twig' %}
+</header>
+    <h1 class="text-center mt-4"> Edition des Oeuvres </h1>
 
     {{ form_start(form) }}
 
