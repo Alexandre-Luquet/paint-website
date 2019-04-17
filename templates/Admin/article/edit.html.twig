@@ -9,4 +9,20 @@
     <header>
         {% include 'nav.html.twig' %}
     </header>
+    <body>
+        <h1>Edition des articles</h1>
+
+        {{ form_start(form) }}
+        {{ form_row(form.titre) }}
+        {{ form_row(form.contenu) }}
+        {{ form_row(form.image) }}
+        {{ form_row(form.category) }}
+        <div class="text-right">
+            <button type="submit" class="btn btn-primary">
+                Enregistrer
+            </button>
+        </div>
+        {{ form_end(form) }}
+
+    </body>
 {% endblock %}
