@@ -13,9 +13,9 @@
 
     {% for monTableau in galerie %}
         <p>
-            <img src="{{ monTableau.getImage }}"><br>
+            <a href="/tableau/{{ monTableau.getId }}"><img src="{{ monTableau.getImage }}"></a><br>
             {{ monTableau.getTitre }}<br>
-            Lien = tableau/{{ monTableau.getId }}<br>
+            Lien = /tableau/{{ monTableau.getId }}<br>
         </p>
     {% endfor %}
 
