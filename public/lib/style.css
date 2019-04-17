@@ -93,7 +93,7 @@ nav{
     text-transform: uppercase;
     background-color: #fff;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
-    overflow: hidden;
+    overflow: visible;
 }
 
 nav ul{
@@ -150,6 +150,10 @@ a > i {
     animation: down 1s forwards;
 }
 
+.dropdown-menu {
+    font-size: 11px;
+}
+
 @keyframes  up {
     from
     {
@@ -180,7 +184,7 @@ a > i {
 {
     header{
         perspective: 48rem;
-        overflow: hidden;
+        overflow: visible;
         height:auto;
     }
 
@@ -214,13 +218,13 @@ a > i {
         background-color: mediumslateblue;
         content: attr(data-text);
         position: absolute;
-        left: 42.5%;
+        left: 43%;
         bottom: -100%;
         padding: inherit;
         color: #fff;
         transform: rotateX(-90deg);
         transform-origin: top;
-        font-size: 1.1rem;
+        font-size: 0.8rem;
     }
 
     .nav-link{
@@ -282,13 +286,18 @@ a > i {
     font-size: 1.3rem;
 }
 
+.marginbtnedit{
+    margin-top: 3%;
+    margin-left: 70%;
+}
+
 /*--------------------------------------------------------------------------------------------------------
                                           START SLIDER
  ---------------------------------------------------------------------------------------------------------*/
 #slider {
     width: 720px;
     height: 400px;
-    overflow: hidden;
+    overflow: visible;
     margin: 0 auto;
 }
 
@@ -310,7 +319,7 @@ a > i {
 .slide img {
     height: 400px;
     width: auto;
-    overflow: hidden;
+    overflow: visible;
 }
 
 @keyframes anime {
