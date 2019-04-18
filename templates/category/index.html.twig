@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catégorie d'articles{% endblock %}
+
+{% block body %}
+        {# NAV  #}
+<div class="menu">
+    <div class="bar"></div>
+</div>
+<div class="overlay"></div>
+<header>
+    {% include 'nav.html.twig' %}
+</header>
+    <h1>{{ category.name }}</h1>
+
+    {% for article in articles %}
+        <h3>{{ article.titre }}</h3>
+        <p>Publié le {{ article.datePublication|date('d/m/Y H:i') }}</p>
+        <div class="card bg-light mb-3">
+            <div class="card-body">
+                {{ article.contenu|nl2br }}
+            </div>
+        </div>
+        {% if article.image is not null %}
+            <div class="text-center">
+                <img src="{{ asset('images/article/' ~ article.image) }}" width="25%">
+            </div>
+        {% endif %}
+    {% else %}
+        <p>Aucun article publié à ce jour !</p>
+    {% endfor %}
+
+{% endblock %}

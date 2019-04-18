@@ -19,6 +19,45 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
+    public function search(array $filters =[])
+    {
+        // constructeur de requete SQL
+        // le 'a' est l'alias de la table article dans la requete
+        $qb = $this->createQueryBuilder('a');
+
+        // tris par date decroissant
+        $qb->orderBy('a.datePublication', 'DESC');
+
+        if (!empty($filters['titre'])){
+            $qb
+                ->andWhere('a.titre LIKE :titre')
+                ->setParameter('titre', '%' . $filters['titre'] . '%');
+        }
+
+        if (!empty($filters['start_date'])){
+            $qb
+                ->andWhere('a.datePublication LIKE >= :start_date')
+                ->setParameter('start_date', '%' . $filters['start_date'] . '%');
+        }
+
+        if (!empty($filters['end_date'])){
+            $qb
+                ->andWhere('a.datePublication LIKE <= :end_date')
+                ->setParameter('end_date', '%' . $filters['end_date'] . '%');
+        }
+
+        if (!empty($filters['category'])){
+            $qb
+                ->andWhere('a.category = :category')
+                ->setParameter('category', $filters['category']);
+        }
+
+        // requete generee
+        $query = $qb->getQuery();
+
+        // on retourne le resultat
+        return $query->getResult();
+    }
     // /**
     //  * @return Article[] Returns an array of Article objects
     //  */

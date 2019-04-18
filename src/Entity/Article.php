@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -30,6 +31,14 @@ class Article
      * @ORM\Column(type="datetime")
      */
     private $datePublication;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @Assert\Image(mimeTypesMessage="Le fichier doit être une image dans un des formats standards",
+     *      maxSize="500k", maxSizeMessage="L'image ne doit pas depasser 500ko")
+     */
+    private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="article")
@@ -86,6 +95,24 @@ class Article
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     * @return Article
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
 
         return $this;
     }

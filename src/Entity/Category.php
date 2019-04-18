@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
@@ -19,19 +20,14 @@ class Category
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=20, unique=true)
+     * Validation : non vide
+     * @Assert\NotBlank(message="Le nom est obligatoire")
+     *
+     * @Assert\Length(max="20",
+     *     maxMessage="Le nom ne doit pas dépasser {{ limit }} caractères")
      */
-    private $exposition;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $presse;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $actualite;
+    private $name;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="category")
@@ -48,41 +44,23 @@ class Category
         return $this->id;
     }
 
-    public function getExposition(): ?string
+    public function getName(): ?string
     {
-        return $this->exposition;
+        return $this->name;
     }
 
-    public function setExposition(string $exposition): self
+    public function setName(string $name): self
     {
-        $this->exposition = $exposition;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getPresse(): ?string
+    public function __toString()
     {
-        return $this->presse;
+        return $this->name;
     }
 
-    public function setPresse(string $presse): self
-    {
-        $this->presse = $presse;
-
-        return $this;
-    }
-
-    public function getActualite(): ?string
-    {
-        return $this->actualite;
-    }
-
-    public function setActualite(string $actualite): self
-    {
-        $this->actualite = $actualite;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Article[]

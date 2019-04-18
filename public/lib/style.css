@@ -17,14 +17,13 @@ a{
 
 header{
     width: 100%;
-    height: 61vh;
+    height: auto;
     position: relative;
-    background: #F5F1FF;
 }
 
 .overlay{
     width: 100%;
-    height: 65vh;
+    height: auto;
     background-color: rgba(0,0,0,.85);
     position: fixed;
     transform: scaleY(0);
@@ -94,7 +93,7 @@ nav{
     text-transform: uppercase;
     background-color: #fff;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
-    overflow: hidden;
+    overflow: visible;
 }
 
 nav ul{
@@ -109,18 +108,18 @@ a > i {
 
 .separator
 {
-    width: 200px;
+    width: 150px;
 }
 .nav-link{
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: mediumslateblue;
-    margin-right: 1.3rem;
+    margin-right: 0.9rem;
     padding: 0 0.7rem;
     display: block;
     position: relative;
     transform-style: preserve-3d;
     transform-origin: top;
-    transition: transform 650ms cubic-bezier(0.55, 0.55, 0.675, 0.19);
+    transition: transform 500ms cubic-bezier(0.55, 0.55, 0.675, 0.19);
 }
 
 .nav-link:hover{
@@ -151,6 +150,11 @@ a > i {
     animation: down 1s forwards;
 }
 
+.dropdown-menu {
+    font-size: 0.85rem;
+}
+
+
 @keyframes  up {
     from
     {
@@ -177,11 +181,12 @@ a > i {
     }
 }
 
-@media screen and (max-width: 1140px)
+@media screen and (max-width: 1100px)
 {
     header{
         perspective: 48rem;
-        overflow: hidden;
+        overflow: visible;
+        height:auto;
     }
 
     nav{
@@ -189,7 +194,7 @@ a > i {
         top: 0;
         left: 0;
         width: 40%;
-        height: 65vh;
+        height: auto;
         line-height: initial;
         flex-direction: column;
         box-shadow: none;
@@ -214,18 +219,18 @@ a > i {
         background-color: mediumslateblue;
         content: attr(data-text);
         position: absolute;
-        left: 42.5%;
+        left: 43%;
         bottom: -100%;
         padding: inherit;
         color: #fff;
         transform: rotateX(-90deg);
         transform-origin: top;
-        font-size: 1.1rem;
+        font-size: 0.8rem;
     }
 
     .nav-link{
-        margin: 1rem 0;
-        font-size: 0.7rem;
+        margin: 0.93rem 0;
+        font-size: 0.65rem;
     }
 
     header.open nav{
@@ -257,7 +262,8 @@ a > i {
 .about img{
     height: 70%;
     width: 80%;
-    border-radius: 50%
+    border-radius: 50%;
+    margin-left: 30px;
 }
 
 .desc{
@@ -279,6 +285,11 @@ a > i {
     line-height:2;
     color:#888;
     font-size: 1.3rem;
+}
+
+.marginbtnedit{
+    margin-top: 3%;
+    margin-left: 70%;
 }
 
 /*--------------------------------------------------------------------------------------------------------
