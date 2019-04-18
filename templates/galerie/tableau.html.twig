@@ -1,15 +1,24 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}Tableau : {{ tableau.getTitre }}{% endblock %}
 {% block body %}
-    <h1>Afficher un tableau</h1>
+      {# NAV  #}
+<div class="menu">
+    <div class="bar"></div>
+</div>
+<div class="overlay"></div>
+<header>
+    {% include 'nav.html.twig' %}
+</header>
 
+<div>
+    <h3 class="text-center mt-5 h3-bio">{{ tableau.getTitre }}</h3>
     <p>
         <img src="{{ tableau.getImage }}"><br>
+        {{ tableau.getAnnee }}<br>
+        {{ tableau.getTechnique }}<br>
+        {{ tableau.getFormat }}<br>
+        {{ tableau.getDescription }}<br>
+
     </p>
-
+</div>
 {% endblock %}
-
-{% block title %}
-
-{% endblock %}
-

@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 class TableauController extends AbstractController
 {
     /**
-     * @Route("/all")
+     * @Route("/")
      */
     public function galerie()
     {
