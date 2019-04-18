@@ -29,7 +29,7 @@ class ExpositionController extends AbstractController
     /**
      * @Route("/{id}")
      */
-    public function showTableau(Request $request, $id)
+    public function showExposition($id)
     {
         // Récupération d'une ligne de la table Exposition correspondant à l'id
         $exposition = $this->getDoctrine()->getRepository(Exposition::class)->find($id);
