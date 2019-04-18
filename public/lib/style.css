@@ -17,7 +17,6 @@ a{
 
 header{
     width: 100%;
-    height: 61vh;
     position: relative;
     background: #F5F1FF;
 }
@@ -368,7 +367,7 @@ a > i {
 
 .image img {
     margin: 10px;
-    height: 450px;
+    height: 400px;
     width: 360px;
 }
 
@@ -377,10 +376,11 @@ a > i {
     flex-wrap: wrap;
     width: 40%;
     background: green;
+    margin: 0px 10px;
 }
 
 .para {
-    margin-left: 20px;
+    text-align: center;
     width: 60%;
 }
 
