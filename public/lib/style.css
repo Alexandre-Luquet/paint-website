@@ -350,7 +350,6 @@ a > i {
 .containner {
     width: 100%;
     display: flex;
-    margin-top: 2%;
     background: #F7F4FF;
 }
 
@@ -368,8 +367,9 @@ a > i {
 
 .image img {
     margin: 10px;
-    height: 450px;
+    height: 400px;
     width: 360px;
+
 }
 
 .pic {
@@ -377,10 +377,11 @@ a > i {
     flex-wrap: wrap;
     width: 40%;
     background: green;
+    margin: 0px 10px;
 }
 
 .para {
-    margin-left: 20px;
+    text-align: center;
     width: 60%;
 }
 
@@ -391,6 +392,7 @@ a > i {
 
 .pic div {
     width: 50%;
+    height: 220px;
 }
 
 .p {
