@@ -113,13 +113,13 @@ a > i {
 .nav-link{
     font-size: 0.85rem;
     color: mediumslateblue;
-    margin-right: 1.1rem;
+    margin-right: 0.9rem;
     padding: 0 0.7rem;
     display: block;
     position: relative;
     transform-style: preserve-3d;
     transform-origin: top;
-    transition: transform 650ms cubic-bezier(0.55, 0.55, 0.675, 0.19);
+    transition: transform 500ms cubic-bezier(0.55, 0.55, 0.675, 0.19);
 }
 
 .nav-link:hover{
@@ -151,8 +151,9 @@ a > i {
 }
 
 .dropdown-menu {
-    font-size: 11px;
+    font-size: 0.85rem;
 }
+
 
 @keyframes  up {
     from
@@ -297,7 +298,7 @@ a > i {
 #slider {
     width: 720px;
     height: 400px;
-    overflow: visible;
+    overflow: hidden;
     margin: 0 auto;
 }
 
@@ -319,7 +320,7 @@ a > i {
 .slide img {
     height: 400px;
     width: auto;
-    overflow: visible;
+    overflow: hidden;
 }
 
 @keyframes anime {
@@ -360,8 +361,6 @@ a > i {
 .containner {
     width: 100%;
     display: flex;
-    margin-top: 2%;
-    background: #F7F4FF;
 }
 
 .resume {
@@ -378,8 +377,8 @@ a > i {
 
 .image img {
     margin: 10px;
-    height: 450px;
-    width: 360px;
+    height: 300px;
+    width: 300px;
 }
 
 .pic {
@@ -387,6 +386,7 @@ a > i {
     flex-wrap: wrap;
     width: 40%;
     background: green;
+    margin: 0px 10px;
 }
 
 .para {
@@ -397,6 +397,7 @@ a > i {
 .para p {
     font-weight: 600;
     font-size: 1.3rem;
+    text-align: center;
 }
 
 .pic div {
