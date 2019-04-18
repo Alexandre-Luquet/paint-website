@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification du membre{% endblock %}
+
+{% block body %}
+    <h1 class="text-center"> Modification de l'utilisateur </h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.username) }}
+    {{ form_row(form.firstname) }}
+    {{ form_row(form.lastname) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.role) }}
+
+    <div class="text-right">
+        <button type="submit" class="btn btn-primary">
+            Enregistrer
+        </button>
+        <a href="{{ path('app_admin_membre_index') }}" class="btn btn-outline-secondary">
+            Retour
+        </a>
+    </div>
+
+    {{ form_end(form) }}
+
+
+{% endblock %}
+
+

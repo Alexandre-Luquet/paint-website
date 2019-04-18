@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block title %}Mes expositions!{% endblock %}
 {% block body %}
-    {# NAV  #}
+      {# NAV  #}
     <div class="menu">
         <div class="bar"></div>
     </div>
@@ -11,13 +11,13 @@
     </header>
 
     <div>
-        <h3 class="text-center mt-5 h3-bio">Ma galerie d'art virtuelle</h3>
+        <h3 class="text-center mt-5 h3-bio">Mes expositions</h3>
 
-        {% for monTableau in galerie %}
+        {% for exposition in expositions %}
             <p>
-                <a href="/tableau/{{ monTableau.getId }}"><img src="{{ monTableau.getImage }}"></a><br>
-                {{ monTableau.getTitre }}<br>
-                Lien = /tableau/{{ monTableau.getId }}<br>
+                <a href="/exposition/{{ exposition.getId }}"><img src="{{ exposition.getImage }}"></a><br>
+                {{ exposition.getTitre }}<br>
+                Lien = /exposition/{{ exposition.getId }}<br>
             </p>
         {% endfor %}
 
