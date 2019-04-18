@@ -361,7 +361,6 @@ a > i {
 .containner {
     width: 100%;
     display: flex;
-    background: #F7F4FF;
 }
 
 .resume {
@@ -378,9 +377,8 @@ a > i {
 
 .image img {
     margin: 10px;
-    height: 400px;
-    width: 360px;
-
+    height: 300px;
+    width: 300px;
 }
 
 .pic {
@@ -392,18 +390,18 @@ a > i {
 }
 
 .para {
-    text-align: center;
+    margin-left: 20px;
     width: 60%;
 }
 
 .para p {
     font-weight: 600;
     font-size: 1.3rem;
+    text-align: center;
 }
 
 .pic div {
     width: 50%;
-    height: 220px;
 }
 
 .p {

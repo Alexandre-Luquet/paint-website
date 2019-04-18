@@ -1,241 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-        {# NAV  #}
+    {# NAV  #}
     <div class="menu">
         <div class="bar"></div>
     </div>
     <div class="overlay"></div>
     <header>
         {% include 'nav.html.twig' %}
-        {% if is_granted('ROLE_USER') %}
-            <div class="menu">
-                <div class="bar"></div>
-            </div>
-            <div class="overlay"></div>
-            <header>
-                <nav>
-                    <ul>
-                        <li class="nav item">
-                            <a href="{{ path('app_index_index') }}" class="nav-link" data-text="Accueil">Accueil</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="{{ path('app_biographieshow_show') }}" class="nav-link" data-text="Bio">Bio</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Blog">Blog</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Gallerie">Galerie</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Expo">Expo</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Presse">Presse</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Contact">Contact</a>
-                        </li>
-                    <div class="separator"></div>
-
-                        <li class="nav-item dropdown">
-                            <a href="" class="nav-link dropdown-toggle" id="menuadmin" role="button" data-toggle="dropdown" data-text="Admin"><i class="fas fa-user-shield"></i>Admin</a>
-                            <div class="dropdown-menu" aria-labelledby="menuadmin">
-                                <a class="dropdown-item" href="">Gestion</a>
-                                <a class="dropdown-item" href="">Gestion</a>
-                                <a class="dropdown-item" href="">Gestion</a>
-                                <a class="dropdown-item" href="">Gestion</a>
-                            </div>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="{{ path('app_security_logout') }}" class="nav-link" data-text="Deconnexion"><i class="fab fa-wpforms"></i>Deconnexion</a>
-                        </li>
-                    </ul>
-                </nav>
-
-                {# NAV USER #}
-            {% elseif is_granted('ROLE_USER') %}
-                <div class="menu">
-                    <div class="bar"></div>
+        <div class="containner">
+            <div class="resume">
+                <div class="image">
+                    <img src="images/tamara.jpg" alt="">
                 </div>
-            <div class="overlay"></div>
-            <header>
-                <nav>
-                    <ul>
-                        <li class="nav item">
-                            <a href="{{ path('app_index_index') }}" class="nav-link" data-text="Accueil">Accueil</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="{{ path('app_biographieshow_show') }}" class="nav-link" data-text="Bio">Bio</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Blog">Blog</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Gallerie">Gallerie</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Expo">Expo</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Presse">Presse</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Contact">Contact</a>
-                        </li>
-                        <div class="separator"></div>
-
-                        <li class="nav item">
-                            <a href="{{ path('app_security_register') }}" class="nav-link" data-text="Deconnexion"><i class="fab fa-wpforms"></i>Deconnexion</a>
-                        </li>
-                    </ul>
-                </nav>
-
-            {% else %}
-            <div class="menu">
-                <div class="bar"></div>
+                <div class="para">
+                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aut beatae earum enim et excepturi harum inventore ipsa maxime nobis non officia optio possimus praesentium quis, temporibus, voluptatibus? Debitis, itaque?</span><span>Cumque dolore nulla officiis quibusdam sit temporibus voluptatem! Autem cum dicta nisi obcaecati suscipit tempora unde, ut. Ad aliquam consequatur doloremque magnam, magni maxime nam, officiis ratione sint veniam vero</p>
+                </div>
             </div>
-            <div class="overlay"></div>
-            <header>
-                <nav>
-                    <ul>
-                        <li class="nav item">
-                            <a href="{{ path('app_index_index') }}" class="nav-link" data-text="Home">Home</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="{{ path('app_biographieshow_show') }}" class="nav-link" data-text="Bio">Bio</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Blog">Blog</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Galerie">Galerie</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Expo">Expo</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Presse">Presse</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="" class="nav-link" data-text="Contact">Contact</a>
-                        </li>
-                        <div class="separator"></div>
-
-                        <li class="nav item">
-                            <a href="{{ path('app_security_login') }}" class="nav-link" data-text="Connexion"><i class="fas fa-sign-in-alt"></i>Connexion</a>
-                        </li>
-
-                        <li class="nav item">
-                            <a href="{{ path('app_security_register') }}" class="nav-link" data-text="Inscription"><i class="fab fa-wpforms"></i>Inscription</a>
-                        </li>
-                    </ul>
-                </nav>
-            {% endif %}
-
-                <div class="containner">
-                    <div class="resume">
-                        <div class="image">
-                            <img src="images/tamara.jpg" alt="">
-                        </div>
-                        <div class="para">
-                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aut beatae earum enim et excepturi harum inventore ipsa maxime nobis non officia optio possimus praesentium quis, temporibus, voluptatibus? Debitis, itaque?</span><span>Cumque dolore nulla officiis quibusdam sit temporibus voluptatem! Autem cum dicta nisi obcaecati suscipit tempora unde, ut. Ad aliquam consequatur doloremque magnam, magni maxime nam, officiis ratione sint veniam vero</p>
-                        </div>
-                    </div>
         <!------------------------------------------------------------
                                 START SLIDER
         --------------------------------------------------------------->
-                <div class="containner">
-                    <div class="resume">
-                        <div class="image">
-                            <img src="images/tamara.jpg" alt="">
-                        </div>
-                        <div class="para">
-                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aut beatae earum enim et excepturi harum inventore ipsa maxime nobis non officia optio possimus praesentium quis, temporibus, voluptatibus? Debitis, itaque?</span><span>Cumque dolore nulla officiis quibusdam sit temporibus voluptatem! Autem cum dicta nisi obcaecati suscipit tempora unde, ut. Ad aliquam consequatur doloremque magnam, magni maxime nam, officiis ratione sint veniam vero.veniam?</span></p>
-                        </div>
-                </div>
+        <div id="slider">
+            <ul class="slides">
+                <li class="slide"><img src="images/dylan-mcleod-564445-unsplash.jpg" alt=""></li>
+                <li class="slide"><img src="images/tamara.jpg" alt=""></li>
+                <li class="slide"><img src="images/sea.jpg" alt=""></li>
+                <li class="slide"><img src="images/frankie-cordoba-557829-unsplash.jpg" alt=""></li>
+                <li class="slide"><img src="images/11624687-1-lightblue.jpg" alt=""></li>
+            </ul>
+        </div>
 
-            <div id="slider">
-                <ul class="slides">
-                    <li class="slide"><img src="images/dylan-mcleod-564445-unsplash.jpg" alt=""></li>
-                    <li class="slide"><img src="images/tamara.jpg" alt=""></li>
-                    <li class="slide"><img src="images/sea.jpg" alt=""></li>
-                    <li class="slide"><img src="images/frankie-cordoba-557829-unsplash.jpg" alt=""></li>
-                    <li class="slide"><img src="images/11624687-1-lightblue.jpg" alt=""></li>
-                </ul>
-            </div>
-                    <div class="pic">
-                        <div class="p"></div>
-                        <div class="m"></div>
-                        <div class="l"></div>
-                        <div class="p"></div>
-                    </div>
-                </div>
-
-
-        <!-----------------------------------------------------------------
-                                    END SLIDER
-        ------------------------------------------------------------------->
-                    <div class="pic">
-                        <div class="p"></div>
-                        <div class="m"></div>
-                        <div class="l"></div>
-                        <div class="p"></div>
-                    </div>
-                </div>
-    </header>
-    </header>
-        <!-----------------------------------------------------------------
-                                    END SLIDER
-        ------------------------------------------------------------------->
-            <!------------------------------------------------------------
-                                        START MAIN
-            --------------------------------------------------------------->
-<main>
-    <div class="containner">
-        <div class="resume">
-            <div class="image">
-                <img src="images/tamara.jpg" alt="">
-            </div>
-            <div class="para">
-                <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aut beatae earum enim et excepturi harum inventore ipsa maxime nobis non officia optio possimus praesentium quis, temporibus, voluptatibus? Debitis, itaque?</span><span>Cumque dolore nulla officiis quibusdam sit temporibus voluptatem! Autem cum dicta nisi obcaecati suscipit tempora unde, ut. Ad aliquam consequatur doloremque magnam, magni maxime nam, officiis ratione sint veniam vero.</span><span>Debitis fuga iste sapiente. Aliquam, amet aut, consequatur dicta dignissimos distinctio dolor, eos excepturi explicabo facere fuga in iusto laborum minima modi molestiae natus nemo neque nesciunt provident tenetur voluptate!</span><span>Amet assumenda dolorum ducimus eum fugiat illum iusto libero, magni minus numquam pariatur perspiciatis ratione, repellat sed similique tempora velit veniam, vero vitae voluptatem? Consequuntur doloremque eveniet inventore iusto veniam?</span></p>
+            <div class="pic">
+                <div class="p"></div>
+                <div class="m"></div>
+                <div class="l"></div>
+                <div class="p"></div>
             </div>
         </div>
-        <div class="pic">
-            <div class="p"></div>
-            <div class="m"></div>
-            <div class="l"></div>
-            <div class="p"></div>
-        </div>
-    </div>
-</main>
+    </header>
+    <!-----------------------------------------------------------------
+                                END SLIDER
+    ------------------------------------------------------------------->
 
-
-            <!------------------------------------------------------------
-                                        END MAIN
-            --------------------------------------------------------------->
-            <!------------------------------------------------------------
-                                        END MAIN
-            --------------------------------------------------------------->
 {% endblock %}
-
