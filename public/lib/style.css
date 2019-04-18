@@ -15,6 +15,10 @@ a{
     text-decoration: none;
 }
 
+ul,li{
+    list-style: none;
+}
+
 header{
     width: 100%;
     height: auto;
@@ -98,7 +102,6 @@ nav{
 
 nav ul{
     display: flex;
-    list-style: none;
 }
 
 a > i {
@@ -106,10 +109,10 @@ a > i {
     color: black;
 }
 
-.separator
-{
+.separator {
     width: 150px;
 }
+
 .nav-link{
     font-size: 0.85rem;
     color: mediumslateblue;
@@ -153,7 +156,6 @@ a > i {
 .dropdown-menu {
     font-size: 0.85rem;
 }
-
 
 @keyframes  up {
     from
@@ -420,3 +422,20 @@ a > i {
 /*--------------------------------------------------------------------------------------------------------
                                             END MAIN PRESENTATION
 ----------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------
+                                            START STYLE INDEX EXPOSITION
+ ----------------------------------------------------------------------------------------------------------*/
+
+.card-title{
+    color: coral;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.card-footer{
+    background-color: darkslategrey;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+}
