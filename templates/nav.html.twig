@@ -1,39 +1,40 @@
 {% block body %}
 
-        <nav>
-            <ul>
-                <li class="nav item">
-                    <a href="{{ path('app_index_index') }}" class="nav-link" data-text="Home">Accueil</a>
-                </li>
+    <nav>
+        <ul>
+            <li class="nav item">
+                <a href="{{ path('app_index_index') }}" class="nav-link" data-text="Accueil">Accueil</a>
+            </li>
 
-                <li class="nav item">
-                    <a href="/biographie" class="nav-link" data-text="Biographie">Biographie</a>
-                </li>
+            <li class="nav item">
+                <a href="/biographie" class="nav-link" data-text="Biographie">Biographie</a>
+            </li>
 
-                <li class="nav item">
-                    <a href="/blog" class="nav-link" data-text="Blog">Blog</a>
-                </li>
-                
-                <li class="nav item">
-                    <a href="/tableau" class="nav-link" data-text="Galerie">Galerie</a>
-                </li>
+            <!--
+            <li class="nav item">
+                <a href="" class="nav-link" data-text="Blog">Blog</a>
+            </li>
+            -->
 
-                <li class="nav item">
-                    <a href="/exposition" class="nav-link" data-text="Exposition">Exposition</a>
-                </li>
+            <li class="nav item">
+                <a href="/tableau" class="nav-link" data-text="Galerie">Galerie</a>
+            </li>
 
-                <li class="nav item">
-                    <a href="/article" class="nav-link" data-text="Presse">Presse</a>
-                </li>
+            <li class="nav item">
+                <a href="/exposition" class="nav-link" data-text="Exposition">Exposition</a>
+            </li>
 
-                <li class="nav item">
-                    <a href="/contact" class="nav-link" data-text="Contact">Contact</a>
-                </li>
+            <li class="nav item">
+                <a href="/admin/article" class="nav-link" data-text="Presse">Presse</a>
+            </li>
+
+            <li class="nav item">
+                <a href="/contact" class="nav-link" data-text="Contact">Contact</a>
+            </li>
 
             <div class="separator"></div>
 
-
-        {% if is_granted('ROLE_ADMIN') %}
+            {% if is_granted('ROLE_ADMIN') %}
 
                 <li class="dropdown">
                     <button class="btn dropdown-toggle" style="color: mediumpurple;" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,13 +51,13 @@
                 <li class="nav item">
                     <a href="{{ path('app_security_logout') }}" class="nav-link" data-text="Deconnexion"><i class="fab fa-wpforms"></i>Deconnexion</a>
                 </li>
-
+                {# NAV USER #}
             {% elseif is_granted('ROLE_USER') %}
                 <li class="nav item">
                     <a href="{{ path('app_security_logout') }}" class="nav-link" data-text="Deconnexion"><i class="fab fa-wpforms"></i>Deconnexion</a>
                 </li>
             {% else %}
-
+                <li class="nav item">
                     <a href="{{ path('app_security_login') }}" class="nav-link" data-text="Connexion"><i class="fas fa-sign-in-alt"></i>Connexion</a>
                 </li>
 
@@ -67,5 +68,4 @@
 
         </ul>
     </nav>
-
 {% endblock %}
