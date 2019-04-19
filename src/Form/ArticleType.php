@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use DateTime;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -21,6 +22,16 @@ class ArticleType extends AbstractType
                 TextType::class,
                 [
                     'label' => 'Titre'
+                ])
+            ->add('lieu',
+                TextType::class,
+                [
+                    'label' => 'Lieu'
+                ])
+            ->add('horaire',
+                TextType::class,
+                [
+                    'label' => 'Horaires'
                 ])
             ->add('contenu',
                 TextareaType::class,

@@ -3,24 +3,25 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Blog;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/article")
+ * @Route("/blog")
  */
-class ArticleController extends AbstractController
+class BlogController extends AbstractController
 {
     /**
      * @Route("/")
      */
     public function index()
     {
-        $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
+        $blogs = $this->getDoctrine()->getRepository(Blog::class)->findAll();
 
-        return $this->render('article/index.html.twig',
+        return $this->render('blog/index.html.twig',
             [
-                'articles' => $articles,
+                'blogs' => $blogs,
             ]
         );
     }
@@ -28,22 +29,21 @@ class ArticleController extends AbstractController
     /**
      * @Route("/{id}")
      */
-    public function showExposition($id)
+    public function showBlog($id)
     {
         // Récupération d'une ligne de la table Exposition correspondant à l'id
-        $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
+        $blog = $this->getDoctrine()->getRepository(Blog::class)->find($id);
 
         // Message d'erreur si je n'ai pas trouvé la ligne, donc base non initialisée
-        if (!$article) {
+        if (!$blog) {
             throw $this->createNotFoundException(
                 "Pas d'article trouvé avec l'id  " . $id . " en base de données"
             );
         }
 
-        return $this->render('article/article.html.twig',
+        return $this->render('blog/blog.html.twig',
             [
-                'controller_name' => 'ExpositionController',
-                'exposition' => $article
+                'blog' => $blog
             ]);
 
     }

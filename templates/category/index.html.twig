@@ -12,6 +12,28 @@
     {% include 'nav.html.twig' %}
 </header>
     <h1>{{ category.name }}</h1>
+    {% if category.id == 2 %}
+    {% for article in articles %}
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-8 mx-auto text-center">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ article.titre }}</h5>
+                            <p class="card-text pb-5 mt-1">{{ article.contenu}}</p>
+                            <p class="card-footer">
+                                Lieu : {{ article.lieu }} à {{ article.horaire }}
+                                commence le {{ article.dateDebut|date('d/m/y')}},
+                                fini le {{ article.dateFin|date('d/m/y') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    {% else %}
 
     {% for article in articles %}
         <h3>{{ article.titre }}</h3>
@@ -29,5 +51,6 @@
     {% else %}
         <p>Aucun article publié à ce jour !</p>
     {% endfor %}
+    {% endif %}
 
 {% endblock %}
