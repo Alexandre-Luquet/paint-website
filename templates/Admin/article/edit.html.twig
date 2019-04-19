@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+ <body style="background-color: #e6e6e6;">
     {# NAV  #}
     <div class="menu">
         <div class="bar"></div>
@@ -10,11 +11,10 @@
         {% include 'nav.html.twig' %}
     </header>
 
-        <h1 class="text-center mt-5">Edition des articles</h1>
-
     <div class="container mt-5">
         <div class="row">
             <div class="col-8 mx-auto text-center">
+                <h1 class="text-center py-2">Edition des articles</h1>
                 {{ form_start(form) }}
                 {{ form_row(form.titre) }}
                 {{ form_row(form.contenu) }}
@@ -25,7 +25,7 @@
                 {{ form_row(form.dateFin) }}
                 {{ form_row(form.horaire) }}
         <div class="text-right">
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="contact75-form-btn mx-auto ml-3"><i class="far fa-edit"></i>
                 Enregistrer
             </button>
         </div>
@@ -33,5 +33,5 @@
             </div>
         </div>
     </div>
-
+</body>
 {% endblock %}

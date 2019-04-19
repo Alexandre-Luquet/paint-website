@@ -468,16 +468,16 @@ a > i {
                                               STYLE FORMULAIRE
  ---------------------------------------------------------------------------------------------*/
 
-#contact_name, #contact_email,#contact_subject{
+#contact_name, #contact_email,#contact_subject,#article_titre,#article_lieu{
     width: 100%;
     height: 60px;
     border-radius: 13px;
     background-color: #f7f7f7;
 }
 
-#contact_body{
+#contact_body,#article_contenu{
     width: 100%;
-    height: 180px;
+    height: 160px;
     border-radius: 13px;
     background-color: #fff;
     resize: none;
@@ -487,21 +487,19 @@ label{
     color: black;
     font-weight: bolder;
     font-size: 1.2rem;
-    margin-top: 4px;
+    margin-top: 5px;
 }
 
-.form-contact{
-    margin-top: 80px;
+form{
+    margin-top: 35px;
+    padding: 50px;
     border: 1px solid white;
     border-radius: 8px;
     background-color: #fff;
 }
 
-form{
-    padding: 50px;
-}
 
-.contact100-form-btn {
+.contact75-form-btn {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -513,7 +511,7 @@ form{
     width: 50%;
     margin: 0 auto;
     height: 50px;
-    background-color: #333333;
+    background-color: #e66767;
     border-radius: 25px;
     font-size: 16px;
     color: #fff;
@@ -522,4 +520,8 @@ form{
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
+}
+
+button > i {
+    margin-right: 10px;
 }
