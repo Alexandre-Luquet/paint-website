@@ -12,10 +12,10 @@
 </header>
 
     {% if  is_granted('ROLE_ADMIN')%}
-    <a class="btn btn-primary right marginbtnedit" href="{{ path('app_admin_biographie_edit') }}">
-Modifier
-</a>
-{% endif %}
+        <a class="btn btn-primary right marginbtnedit" href="{{ path('app_admin_biographie_edit') }}">
+            Modifier
+        </a>
+    {% endif %}
 
     <div class="container">
     <div class="row mt-3">
