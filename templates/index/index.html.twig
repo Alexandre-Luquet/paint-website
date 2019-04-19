@@ -14,6 +14,11 @@
                     <p class="text-center mt-2 paragraphe-acceuil">L'Artiste</p>
                     <img src="images/tamara.jpg" alt="..." class="img-thumbnail">
                     <p class="float-left"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At aut consectetur eaque expedita modi nisi non numquam provident quas, quod veniam voluptate. Ipsum, laudantium nesciunt. Culpa eos iure reiciendis suscipit!</span><span>Animi architecto at deleniti dignissimos doloremque, ea minima non quis rem reprehenderit ut, voluptate, voluptates. Architecto dolores fugiat incidunt maiores molestiae qui tempore. A cum neque quisquam, repellendus soluta veritatis!</span></p>
+                    {% if  is_granted('ROLE_ADMIN')%}
+                        <a class="btn btn-primary right marginbtnedit" href="{{ path('app_admin_biographie_edit') }}">
+                            Modifier
+                        </a>
+                    {% endif %}
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div id="carouselExampleSlidesOnly" class="carousel slide mt-5 " data-ride="carousel">

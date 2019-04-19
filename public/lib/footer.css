@@ -13,3 +13,46 @@ html,body {
     position: relative;
     bottom: 0;
 }
+
+
+.galerie a {
+    text-align: center;
+}
+
+.a {
+    background: red;
+    height: 200px;
+}
+
+.b {
+    background: yellowgreen;
+    height: 200px;
+}
+
+.c {
+    background: orangered;
+    height: 200px;
+}
+
+.d {
+    background: cornflowerblue;
+    height: 200px;
+}
+
+img {
+    height: 200px;
+    width: 250px;
+}
+
+.raw {
+    margin-left: 70px;
+}
+
+.button-ap {
+    margin-left: 25%;
+}
+
+.gallerie-title {
+    color: slateblue;
+}
+

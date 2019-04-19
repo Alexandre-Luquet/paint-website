@@ -11,14 +11,37 @@
     </header>
 
     <div>
-        <h3 class="text-center mt-5 h3-bio">Ma galerie d'art virtuelle</h3>
-
+        <div class="container-fluid">
+            <h1 class="text-center mt-5 gallerie-title">Ma galerie d'art virtuelle</h1>
+            <div class="row raw mt-5">
         {% for monTableau in galerie %}
-            <p>
-                <a href="/tableau/{{ monTableau.getId }}"><img src="{{ asset('images/galerie/' ~ monTableau.image) }}"></a><br>
-                {{ monTableau.getTitre }}<br>
-                Lien = /tableau/{{ monTableau.getId }}<br>
-            </p>
+                    <div class="col-lg-2 ml-3 mt-4">
+                        <img src="{{ asset('images/galerie/' ~ monTableau.image) }}" class="rounded float-left" alt="...">
+                        <a href="#" class="btn btn-info btn-article-content ml-5 mt-1">
+                            Voir photo
+                        </a>
+                    </div>
         {% endfor %}
-    </div>
+
+            </div>
+        </div>
+
+        <!-- MODAL GALLERIE-->
+        <div class="modal" tabindex="-1" role="dialog" id="modal-article-content">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Gallerie</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary fermer">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 {% endblock %}
