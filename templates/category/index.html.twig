@@ -18,12 +18,14 @@
             <div class="row">
                 <div class="col-md-8 col-sm-12 mx-auto text-center">
                     <div class="card text-center">
-                        <img class="card-img-top img-fluid" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
+                        {% if article.image is defined %}
+                            <img class="card-img-top img-fluid" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
+                        {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ article.titre }}</h5>
                             <p class="card-text pb-5 mt-1">{{ article.contenu}}</p>
                             <p class="card-footer">
-                                Lieu : {{ article.lieu }} à {{ article.horaire }}
+                                Lieu : {{ article.lieu }}  {{ article.horaire }}
                                 commence le {{ article.dateDebut|date('d/m/y')}},
                                 fini le {{ article.dateFin|date('d/m/y') }}</p>
                         </div>
@@ -38,7 +40,9 @@
             <div class="row">
                 <div class="col-8 mx-auto text-center">
                     <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
+                        {% if article.image is defined %}
+                            <img class="card-img-top" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
+                        {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ article.titre }}</h5>
                             <p class="card-text pb-5 mt-1">{{ article.contenu}}</p>
@@ -58,7 +62,9 @@
             <div class="row">
                 <div class="col-8 mx-auto text-center">
                     <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
+                        {% if article.image is defined %}
+                            <img class="card-img-top" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
+                        {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ article.titre }}</h5>
                             <p class="card-text pb-5 mt-1">{{ article.contenu}}</p>
