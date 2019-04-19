@@ -439,3 +439,8 @@ a > i {
     font-weight: 600;
     font-size: 1rem;
 }
+
+.card-img-top{
+    max-width: 1200px;
+    max-height: 350px;
+}

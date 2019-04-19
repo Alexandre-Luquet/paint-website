@@ -39,9 +39,9 @@
                         Gestions
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <a href="admin/tableau/" class="dropdown-item">Gestion Tableau</a>
-                        <a href="admin/article/" class="dropdown-item">Gestion Article</a>
-                        <a href="admin/membre" class="dropdown-item">Gestion Membre</a>
+                        <a href="{{ path('app_admin_tableau_edit') }}" class="dropdown-item">Gestion Tableau</a>
+                        <a href="{{ path('app_admin_article_edit') }}" class="dropdown-item">Gestion Article</a>
+                        <a href="{{ path('app_admin_membre_edit') }}" class="dropdown-item">Gestion Membre</a>
                         <button class="dropdown-item" type="button">Gestion Commentaire</button>
                     </div>
                 </li>
