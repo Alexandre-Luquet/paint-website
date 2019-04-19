@@ -26,6 +26,30 @@ class Biographie
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="string", length=2000, nullable=true)
+     */
+    private $presentation;
+
+    /**
+     * @return mixed
+     */
+    public function getPresentation()
+    {
+        return $this->presentation;
+    }
+
+    /**
+     * @param mixed $presentation
+     * @return Biographie
+     */
+    public function setPresentation($presentation)
+    {
+        $this->presentation = $presentation;
+        return $this;
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
