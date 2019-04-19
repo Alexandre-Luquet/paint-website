@@ -59,5 +59,20 @@ $(function() {
 
     });
 
+    $('.close').click(function (ev) {
+
+        ev.preventDefault();
+
+        // au click faire disparaitre la modal avec hide
+        $modal.hide();
+    })
+
+    $('.fermer').click(function(e) {
+
+        e.preventDefault();
+
+        // au click faire disparaitre la modal avec hide
+        $modal.hide();
+    })
 
 });
