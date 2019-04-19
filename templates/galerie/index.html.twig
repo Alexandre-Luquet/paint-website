@@ -15,7 +15,7 @@
 
         {% for monTableau in galerie %}
             <p>
-                <img src="{{ asset('images/tableaux/' ~ monTableau.image) }}">
+                <a href="/tableau/{{ monTableau.getId }}"><img src="{{ asset('images/galerie/' ~ monTableau.image) }}"></a><br>
                 {{ monTableau.getTitre }}<br>
                 Lien = /tableau/{{ monTableau.getId }}<br>
             </p>

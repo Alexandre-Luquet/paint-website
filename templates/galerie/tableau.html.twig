@@ -13,7 +13,7 @@
 <div>
     <h3 class="text-center mt-5 h3-bio">{{ tableau.getTitre }}</h3>
     <p>
-        <img src="{{ tableau.getImage }}"><br>
+        <img src="{{ asset('images/galerie/' ~ tableau.image) }}"><br>
         {{ tableau.getAnnee }}<br>
         {{ tableau.getTechnique }}<br>
         {{ tableau.getFormat }}<br>
