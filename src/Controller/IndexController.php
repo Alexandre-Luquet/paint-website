@@ -2,9 +2,13 @@
 //okok
 namespace App\Controller;
 
+use App\Entity\Biographie;
+use App\Entity\Tableau;
 use App\Form\ContactType;
+use Doctrine\ORM\Mapping\Index;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Request; //néccessaire pour faire une requête?
+//use Symfony\Component\HttpFoundation\Response; //test1
 use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
@@ -14,7 +18,23 @@ class IndexController extends AbstractController
      */
     public function index()
     {
+       // $caroussel = true;
+        //$caroussel = $this->getDoctrine()-> getRepository(Tableau::class)->findByImage
+        //('Joconde');
+
+
+
+        //$repository = $this->getDoctrine()
+          //  ->getManager()
+            //->getRepository('SdzBlogBundle:Article');
+        //$article = $repository->findOneBy(array('titre' => 'Mon dernier weekend'));
+// $article est une instance de Article
+
+
         return $this->render('index/index.html.twig');
+            //[
+             //   'caroussel' => $caroussel
+           // ]);
     }
 
     /**
