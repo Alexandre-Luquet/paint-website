@@ -12,8 +12,11 @@
         {% include 'nav.html.twig' %}
     </header>
 
-    <h1 class="text-center mt-5">List des membres</h1>
+    <h1 class="text-center mt-5">Liste des membres</h1>
 
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-10 col-sm-12 mx-auto text-center">
     <table class="table table-striped mt-3">
         <tr>
             <th>Pseudo</th>
@@ -41,5 +44,8 @@
             </tr>
         {% endfor %}
     </table>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

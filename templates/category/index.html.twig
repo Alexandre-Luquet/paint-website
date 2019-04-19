@@ -16,9 +16,9 @@
         <h1 class="text-center mt-5">{{ category.name }}</h1>
         <div class="container mt-4">
             <div class="row">
-                <div class="col-8 mx-auto text-center">
+                <div class="col-8 col-sm-12 mx-auto text-center">
                     <div class="card">
-                        <img class="card-img-top" src="{{ article.image }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ article.titre }}</h5>
                             <p class="card-text pb-5 mt-1">{{ article.contenu}}</p>

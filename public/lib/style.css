@@ -205,12 +205,12 @@ a > i {
         transform-origin: top left;
         transition: transform 650ms cubic-bezier(0.55, 0.55, 0.675, 0.19);
         z-index: 10;
+        overflow: hidden;
     }
 
     nav ul{
         flex-direction: column;
-        margin-top: -1.8rem;
-        padding-top: 1.6rem;
+        margin: 0 auto;
     }
 
     .nav-item:nth-child(n){
@@ -221,7 +221,7 @@ a > i {
         background-color: mediumslateblue;
         content: attr(data-text);
         position: absolute;
-        left: 43%;
+        text-align: center;
         bottom: -100%;
         padding: inherit;
         color: #fff;
@@ -232,7 +232,7 @@ a > i {
 
     .nav-link{
         margin: 0.93rem 0;
-        font-size: 0.65rem;
+        font-size: 0.75rem;
     }
 
     header.open nav{
@@ -258,7 +258,7 @@ a > i {
 .about{
     margin: 3em 0;
     padding: 1em;
-    position: relative;
+    position: inherit;
 }
 
 .about img{
