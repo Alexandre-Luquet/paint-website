@@ -29,7 +29,7 @@ class CategoryController extends AbstractController
             [
                 'datePublication' => 'DESC'
             ],
-            3
+            5
         );
         return $this->render('category/index.html.twig',
             [

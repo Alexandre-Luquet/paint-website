@@ -7,6 +7,8 @@ use App\Entity\Category;
 use DateTime;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -27,6 +29,20 @@ class ArticleType extends AbstractType
                 TextType::class,
                 [
                     'label' => 'Lieu'
+                ])
+            ->add( 'dateDebut',
+                DateType::class,
+                [
+                    'label' => 'Date début',
+                    'required' => false,
+                    'format' => 'dd - MM - yyyy'
+                ])
+            ->add( 'dateFin',
+                DateType::class,
+                [
+                    'label' => 'Date fin',
+                    'required' => false,
+                    'format' => 'dd - MM - yyyy'
                 ])
             ->add('horaire',
                 TextType::class,
