@@ -3,14 +3,25 @@
 {% block title %}Gestion des membres{% endblock %}
 
 {% block body %}
+    {# NAV  #}
+    <div class="menu">
+        <div class="bar"></div>
+    </div>
+    <div class="overlay"></div>
+    <header>
+        {% include 'nav.html.twig' %}
+    </header>
 
-    <table class="table">
+    <h1 class="text-center mt-5">List des membres</h1>
+
+    <table class="table table-striped mt-3">
         <tr>
             <th>Pseudo</th>
             <th>Nom</th>
             <th>Prénom</th>
             <th>Mail</th>
             <th>Rôle</th>
+            <th>Actions</th>
         </tr>
         {% for user in users %}
             <tr>

@@ -11,10 +11,30 @@
 <header>
     {% include 'nav.html.twig' %}
 </header>
-    <h1>{{ category.name }}</h1>
+{% for article in articles %}
     {% if category.id == 2 %}
-    {% for article in articles %}
-        <div class="container mt-5">
+        <h1 class="text-center mt-5">{{ category.name }}</h1>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-8 mx-auto text-center">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ article.image }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ article.titre }}</h5>
+                            <p class="card-text pb-5 mt-1">{{ article.contenu}}</p>
+                            <p class="card-footer">
+                                Lieu : {{ article.lieu }} à {{ article.horaire }}
+                                commence le {{ article.dateDebut|date('d/m/y')}},
+                                fini le {{ article.dateFin|date('d/m/y') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% elseif category.id == 1 %}
+        <h1 class="text-center mt-5">{{ category.name }}</h1>
+        <div class="container mt-4">
             <div class="row">
                 <div class="col-8 mx-auto text-center">
                     <div class="card">
@@ -31,26 +51,27 @@
                 </div>
             </div>
         </div>
-    {% endfor %}
 
     {% else %}
-
-    {% for article in articles %}
-        <h3>{{ article.titre }}</h3>
-        <p>Publié le {{ article.datePublication|date('d/m/Y H:i') }}</p>
-        <div class="card bg-light mb-3">
-            <div class="card-body">
-                {{ article.contenu|nl2br }}
+        <h1 class="text-center mt-5">{{ category.name }}</h1>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-8 mx-auto text-center">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ article.titre }}</h5>
+                            <p class="card-text pb-5 mt-1">{{ article.contenu}}</p>
+                            <p class="card-footer">
+                                Lieu : {{ article.lieu }} à {{ article.horaire }}
+                                commence le {{ article.dateDebut|date('d/m/y')}},
+                                fini le {{ article.dateFin|date('d/m/y') }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        {% if article.image is not null %}
-            <div class="text-center">
-                <img src="{{ asset('images/article/' ~ article.image) }}" width="25%">
-            </div>
-        {% endif %}
-    {% else %}
-        <p>Aucun article publié à ce jour !</p>
-    {% endfor %}
     {% endif %}
+{% endfor %}
 
 {% endblock %}

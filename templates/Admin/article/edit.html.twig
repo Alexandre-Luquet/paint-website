@@ -9,9 +9,12 @@
     <header>
         {% include 'nav.html.twig' %}
     </header>
-    <body>
-        <h1>Edition des articles</h1>
 
+        <h1 class="text-center mt-5">Edition des articles</h1>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-8 mx-auto text-center">
         {{ form_start(form) }}
         {{ form_row(form.titre) }}
         {{ form_row(form.contenu) }}
@@ -25,6 +28,8 @@
             </button>
         </div>
         {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
 
-    </body>
 {% endblock %}
