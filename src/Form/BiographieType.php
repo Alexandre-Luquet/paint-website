@@ -27,6 +27,11 @@ class BiographieType extends AbstractType
                 [
                     'label' => 'Votre biographie'
                 ])
+            ->add('presentation',
+                TextareaType::class,
+                [
+                    'label' => "Votre présentation d'accueil"
+                ])
             ->add('photo',
                 FileType::class,
                 [
