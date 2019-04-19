@@ -12,7 +12,7 @@
     {% include 'nav.html.twig' %}
 </header>
 {% for article in articles %}
-    {% if category.id == 2 %}
+    {% if category.id == 2 %} {# ID:2 = EXPOSITION#}
         <h1 class="text-center mt-5">{{ category.name }}</h1>
         <div class="container mt-4">
             <div class="row">
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-    {% elseif category.id == 1 %}
+    {% elseif category.id == 1 %} {# ID:1 = BLOG #}
         <h1 class="text-center mt-5">{{ category.name }}</h1>
         <div class="container mt-4">
             <div class="row">
@@ -48,30 +48,27 @@
                             <p class="card-text pb-5 mt-1">{{ article.contenu}}</p>
                             <p class="card-footer">
                                 Lieu : {{ article.lieu }} à {{ article.horaire }}
-                                commence le {{ article.dateDebut|date('d/m/y')}},
-                                fini le {{ article.dateFin|date('d/m/y') }}</p>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-    {% else %}
+    {% else %} {# PRESSE #}
         <h1 class="text-center mt-5">{{ category.name }}</h1>
         <div class="container mt-4">
             <div class="row">
                 <div class="col-8 mx-auto text-center">
                     <div class="card">
                         {% if article.image is defined %}
-                            <img class="card-img-top" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
+                            <img class="card-img-top img-fluid" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
                         {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ article.titre }}</h5>
                             <p class="card-text pb-5 mt-1">{{ article.contenu}}</p>
                             <p class="card-footer">
-                                Lieu : {{ article.lieu }} à {{ article.horaire }}
-                                commence le {{ article.dateDebut|date('d/m/y')}},
-                                fini le {{ article.dateFin|date('d/m/y') }}</p>
+                                <a href="#">Voir l'article de presse</a></p>
                         </div>
                     </div>
                 </div>

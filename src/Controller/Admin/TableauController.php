@@ -84,7 +84,7 @@ class TableauController extends AbstractController
 
             if ($form->isValid()) {
                 /** @var UploadedFile $image */
-                $image = $tableau->getImage();
+                $image = $form->get('image')->getData();
 
                 if(!is_null($image)) {
                     // nom sous lequel va etre enregistre l'image
