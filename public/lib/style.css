@@ -360,29 +360,6 @@ a > i {
 ----------------------------------------------------------------------------------------------------------*/
 
 
-.containner {
-    width: 100%;
-    display: flex;
-}
-
-.resume {
-    display: flex;
-    width: 60%;
-}
-
-.image {
-    width: 40%;
-    display: flex;
-    justify-content: flex-start;
-    overflow: hidden;
-}
-
-.image img {
-    margin: 10px;
-    height: 300px;
-    width: 300px;
-}
-
 .pic {
     display: flex;
     flex-wrap: wrap;
@@ -418,6 +395,43 @@ a > i {
     background: mediumvioletred;
 }
 
+.paragraphe-acceuil {
+    font-size: 1.5rem;
+}
+
+.tableau {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tableau div {
+    height: 200px;
+    width: 50%;
+}
+
+.a {
+    background: red;
+}
+
+.b {
+    background-color: yellowgreen;
+}
+
+.c {
+    background: rebeccapurple;
+}
+
+.d {
+    background-color: #000;
+}
+
+.color-footer {
+    background: #D1BDFF;
+    height: 75px;
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+}
 
 /*--------------------------------------------------------------------------------------------------------
                                             END MAIN PRESENTATION

@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+}
+
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
+.color-footer {
+    background: #000;
+    height: 70px;
+    position: relative;
+    bottom: 0;
+}
