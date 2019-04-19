@@ -14,11 +14,61 @@
         <h3 class="text-center mt-5 h3-bio">Ma galerie d'art virtuelle</h3>
 
         {% for monTableau in galerie %}
-            <p>
-                <a href="/tableau/{{ monTableau.getId }}"><img src="{{ monTableau.getImage }}"></a><br>
-                {{ monTableau.getTitre }}<br>
-                Lien = /tableau/{{ monTableau.getId }}<br>
-            </p>
+            <div class="container-fluid">
+                <div class="col-lg-12">
+                    <h1 class="text-center mt-3">GALLERIE</h1>
+                </div>
+                <div class="row raw">
+                    <div class="col-lg-2 ml-3 mt-2">
+                        <img src="image/tamara.jpg" class="rounded float-left" alt="...">
+                        <a href="#" class="btn btn-info btn-article-content ml-5 mt-1">
+                            Voir photo
+                        </a>
+                    </div>
+                    <div class="col-lg-2 ml-3 mt-2 ">
+                        <img src="image/frankie-cordoba-557829-unsplash.jpg" class="rounded float-left" alt="...">
+                        <a href="#" class="btn btn-info btn-article-content ml-5 mt-1">
+                            Voir photo
+                        </a>
+                    </div>
+                    <div class="col-lg-2 ml-3 mt-2">
+                        <img src="image/tamara.jpg" class="rounded float-left" alt="...">
+                        <a href="#" class="btn btn-info btn-article-content ml-5 mt-1">
+                            Voir photo
+                        </a>
+                    </div>
+                    <div class="col-lg-2 ml-3 mt-2">
+                        <img src="image/zulty.jpg" class="rounded float-left" alt="...">
+                        <a href="#" class="btn btn-info btn-article-content ml-5 mt-1">
+                            Voir photo
+                        </a>
+                    </div>
+                    <div class="col-lg-2 ml-3 mt-2">
+                        <img src="{{ asset('images/tableaux/' ~ monTableau.) }}" class="rounded float-left" alt="...">
+                        <a href="#" class="btn btn-info btn-article-content ml-5 mt-1">
+                            Voir photo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODAL GALLERIE-->
+            <div class="modal" tabindex="-1" role="dialog" id="modal-article-content">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Gallerie</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary fermer">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

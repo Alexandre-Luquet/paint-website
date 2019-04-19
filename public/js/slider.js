@@ -36,3 +36,41 @@ $(function() {
     startSlider();
 
 });
+
+
+
+
+/*-----------------------------------------------------------------------
+                        Gallerie modal
+------------------------------------------------------------------------ */
+$(function() {
+
+    var $modal = $('#modal-article-content');
+
+    $('.btn-article-content').click(function (e) {
+
+        e.preventDefault();
+
+        // au click faire apparaitre la modal avec show
+        $modal.show();
+
+
+    });
+
+    $('.close').click(function (ev) {
+
+        ev.preventDefault();
+
+        // au click faire disparaitre la modal avec hide
+        $modal.hide();
+    })
+
+    $('.fermer').click(function(e) {
+
+        e.preventDefault();
+
+        // au click faire disparaitre la modal avec hide
+        $modal.hide();
+    })
+
+});
