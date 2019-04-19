@@ -10,21 +10,17 @@
         {% include 'nav.html.twig' %}
     </header>
 
-    <div>
         <div class="container-fluid">
             <h1 class="text-center mt-5 gallerie-title">Ma galerie d'art virtuelle</h1>
             <div class="row raw mt-5">
         {% for monTableau in galerie %}
                     <div class="col-lg-2 ml-3 mt-2">
-                        <img src="{{ asset('images/galerie/' ~ monTableau.) }}" class="rounded float-left" alt="...">
+                        <img src="{{ asset('images/galerie/' ~ monTableau.image) }}" class="rounded float-left" alt="...">
                         <a href="#" class="btn btn-info btn-article-content ml-5 mt-1">
                             Voir photo
                         </a>
                     </div>
-                </div>
-            </div>
         {% endfor %}
-
             </div>
         </div>
 
