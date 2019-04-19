@@ -31,7 +31,7 @@ class IndexController extends AbstractController
 // $article est une instance de Article
 
 
-        return $this->render('index/index.html.twig'
+        return $this->render('index/index.html.twig');
             //[
              //   'caroussel' => $caroussel
            // ]);
