@@ -58,6 +58,11 @@ class Tableau
      */
     private $publicationDate;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $caroussel;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -179,6 +184,18 @@ class Tableau
     public function setPublicationDate(\DateTimeInterface $publicationDate): self
     {
         $this->publicationDate = $publicationDate;
+
+        return $this;
+    }
+
+    public function getCaroussel(): ?bool
+    {
+        return $this->caroussel;
+    }
+
+    public function setCaroussel(?bool $caroussel): self
+    {
+        $this->caroussel = $caroussel;
 
         return $this;
     }
