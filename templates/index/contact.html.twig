@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <body style="background-color: #e6e6e6;">
     {# NAV  #}
     <div class="menu">
         <div class="bar"></div>
@@ -10,18 +11,17 @@
         {% include 'nav.html.twig' %}
     </header>
 
-    <h1 class="text-center mt-5">Contactez moi !</h1>
-
 <div class="container mt-4">
     <div class="row">
-        <div class="col-8 mx-auto text-center">
+        <div class="col-8 mx-auto text-center form-contact">
+            <h1 class="mt-5">Contactez moi !</h1>
             {{ form_start(form) }}
             {{ form_row(form.name) }}
             {{ form_row(form.email) }}
             {{ form_row(form.subject) }}
             {{ form_row(form.body) }}
     <div class="text-right">
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="contact100-form-btn">
             Envoyer
         </button>
     </div>
@@ -29,6 +29,6 @@
         </div>
     </div>
 </div>
-
+    </body>
 {% endblock %}
 
