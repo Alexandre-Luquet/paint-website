@@ -3,78 +3,91 @@
 {% block title %}Catégorie d'articles{% endblock %}
 
 {% block body %}
+     <body style="background-color: #7efff5;">
         {# NAV  #}
-<div class="menu">
-    <div class="bar"></div>
-</div>
-<div class="overlay"></div>
-<header>
-    {% include 'nav.html.twig' %}
-</header>
-{% for article in articles %}
-    {% if category.id == 2 %} {# ID:2 = EXPOSITION#}
-        <h1 class="text-center mt-5">{{ category.name }}</h1>
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-md-8 col-sm-12 mx-auto text-center">
-                    <div class="card text-center">
-                        {% if article.image is defined %}
-                            <img class="card-img-top img-fluid" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ article.titre }}</h5>
-                            <p class="card-text pb-5 mt-1">{{ article.contenu}}</p>
-                            <p class="card-footer">
-                                Lieu : {{ article.lieu }}  {{ article.horaire }}
-                                commence le {{ article.dateDebut|date('d/m/y')}},
-                                fini le {{ article.dateFin|date('d/m/y') }}</p>
+        <div class="menu">
+            <div class="bar"></div>
+        </div>
+        <div class="overlay"></div>
+        <header>
+            {% include 'nav.html.twig' %}
+        </header>
+
+
+        <h1 class="text-center mt-5 h1-category">{{ category.name }}</h1>
+        {% for article in articles %}
+            {% if category.id == 2 %} {# EXPOSITION #}
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12 mx-auto text-center">
+                            <div class="card text-center">
+                                {% if article.image is defined %}
+                                    <img class="card-img-top img-fluid" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
+                                {% endif %}
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ article.titre }}</h5>
+                                    <p class="card-text mt-1">{{ article.contenu}}</p>
+                                        <a href="" class="btn btn-primary m-3">Lire la suite</a>
+                                    {% if  is_granted('ROLE_ADMIN')%}
+                                        <a class="btn btn-primary" href="{{ asset('admin/article/edition/') ~ article.id }}">
+                                            Modifier
+                                        </a>
+                                    {% endif %}
+                                    <p class="card-footer">
+                                        Lieu : {{ article.lieu }} à {{ article.horaire }}
+                                        commence le {{ article.dateDebut|date('d/m/y')}},
+                                        fini le {{ article.dateFin|date('d/m/y') }}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-    {% elseif category.id == 1 %} {# ID:1 = BLOG #}
-        <h1 class="text-center mt-5">{{ category.name }}</h1>
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-8 mx-auto text-center">
-                    <div class="card">
-                        {% if article.image is defined %}
-                            <img class="card-img-top" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ article.titre }}</h5>
-                            <p class="card-text pb-5 mt-1">{{ article.contenu}}</p>
-                            <p class="card-footer">
-                                Lieu : {{ article.lieu }} à {{ article.horaire }}
-                            </p>
+            {% elseif category.id == 1 %} {# BLOG #}
+                <div class="container bg-light mt-5">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4">
+                                {% if article.image is defined %}
+                                    <img class="img-fluid w-100" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
+                                {% endif %}
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <h4 class="card-title mt-4 text-center">{{ article.titre }}</h4>
+                            <p class="mt-2">{{ article.contenu}}</p>
+                            <a href="" class="btn btn-primary m-3">Lire la suite</a>
+                            {% if  is_granted('ROLE_ADMIN')%}
+                                <div class="btn-group">
+                                <a class="btn btn-primary" href="{{ asset('admin/article/edition/') ~ article.id }}">
+                                    Modifier
+                                </a>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-    {% else %} {# PRESSE #}
-        <h1 class="text-center mt-5">{{ category.name }}</h1>
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-8 mx-auto text-center">
-                    <div class="card">
-                        {% if article.image is defined %}
-                            <img class="card-img-top img-fluid" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
+            {% else %} {# PRESSE #}
+            <div class="col-md-8 mx-auto mt-5">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h4>Nom du journal</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article.titre }}</h5>
+                        <p class="card-text">{{ article.contenu }}</p>
+                        <a href="#" class="btn btn-primary text-right">En savoir plus</a>
+                        {% if  is_granted('ROLE_ADMIN')%}
+                            <a class="btn btn-primary" href="{{ asset('admin/article/edition/') ~ article.id }}">
+                                Modifier
+                            </a>
                         {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ article.titre }}</h5>
-                            <p class="card-text pb-5 mt-1">{{ article.contenu}}</p>
-                            <p class="card-footer">
-                                <a href="#">Voir l'article de presse</a></p>
-                        </div>
+                    </div>
+                    <div class="card-footer text-light text-muted">
+                        Il y'a (publicationDate)
                     </div>
                 </div>
             </div>
-        </div>
-    {% endif %}
-{% endfor %}
-
-{% endblock %}
+            {% endif %}
+        {% endfor %}
+     </body>
+        {% endblock %}

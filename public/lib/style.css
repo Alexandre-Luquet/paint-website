@@ -190,7 +190,6 @@ a > i {
 @media screen and (max-width: 1100px)
 {
     header{
-        perspective: 48rem;
         overflow: visible;
         height:auto;
     }
@@ -199,8 +198,8 @@ a > i {
         position: absolute;
         top: 0;
         left: 0;
-        width: 40%;
-        height: auto;
+        width: 50%;
+        height: 100vh;
         line-height: initial;
         flex-direction: column;
         box-shadow: none;
@@ -442,8 +441,14 @@ a > i {
 ----------------------------------------------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------------------------------------
-                                            START STYLE INDEX EXPOSITION
+                                            START STYLE  EXPOSITION
  ----------------------------------------------------------------------------------------------------------*/
+.h1-category{
+    color: #4b4b4b;
+    font-size: 3rem;
+    font-style: italic;
+    font-weight: bold;
+}
 
 .card-title{
     color: coral;
@@ -452,9 +457,9 @@ a > i {
 }
 
 .card-footer{
-    background-color: darkslategrey;
-    color: white;
-    font-weight: 600;
+    background-color: #3d3d3d;
+    color: white !important;
+    font-weight: bolder;
     font-size: 1rem;
 }
 
@@ -463,12 +468,37 @@ a > i {
     max-height: 350px;
 }
 
+/*--------------------------------------------------------------------------------------------
+                                            STYLE PRESSE
+ ---------------------------------------------------------------------------------------------*/
+.presse-bloc{
+    position: relative;
+    margin-top: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.presse-container{
+    position: relative;
+    margin: 1% 1%;
+    width: 40%;
+    background: #fff;
+}
+
+.presse-title{
+    text-align: center;
+}
+
+
+
 
 /*--------------------------------------------------------------------------------------------
                                               STYLE FORMULAIRE
  ---------------------------------------------------------------------------------------------*/
 
-#contact_name, #contact_email,#contact_subject,#article_titre,#article_lieu{
+#contact_name, #contact_email,#contact_subject,#article_titre,#article_lieu,
+#membre_username,#membre_firstname,#membre_lastname,#membre_email{
     width: 100%;
     height: 60px;
     border-radius: 13px;
@@ -481,6 +511,12 @@ a > i {
     border-radius: 13px;
     background-color: #fff;
     resize: none;
+}
+
+#membre_role{
+    display: flex;
+    flex-flow: row wrap;
+    font-weight: 400;
 }
 
 label{
