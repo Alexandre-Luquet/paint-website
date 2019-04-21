@@ -13,6 +13,42 @@
 </header>
     <h1 class="text-center mt-4">Mes Tableaux</h1>
 
-
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-10 col-sm-12 mx-auto text-center">
+                <table class="table table-striped mt-3">
+                    <tr>
+                        <th>Titre</th>
+                        <th>Illustration</th>
+                        <th>Année</th>
+                        <th>Technique</th>
+                        <th>Format</th>
+                        <th>Descritpion</th>
+                        <th>Commentaires</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for tableau in tableaux %}
+                        <tr>
+                            <td>{{ tableau.titre }}</td>
+                            <td><img src="{{ asset('images/galerie/' ~ tableau.image)}}"></td>
+                            <td>{{ tableau.annee }}</td>
+                            <td>{{ tableau.technique }}</td>
+                            <td>{{ tableau.format }}</td>
+                            <td>{{ tableau.description }}</td>
+                            <a href="{{ path('app_admin_comment_index', {'id': tableau.id}) }}"><td>{{ tableau.comments|length }}</td></a>
+                            <td>
+                                <a class="btn btn-primary btn-sm" href="{{ path('app_admin_tableau_edit', {'id': tableau.id}) }}">
+                                    Modifier
+                                </a>
+                                <a href="{{ path('app_admin_tableau_delete', {'id': tableau.id}) }}" class="btn btn-delete btn-danger btn-sm">
+                                    Supprimer
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
