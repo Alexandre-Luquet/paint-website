@@ -28,7 +28,7 @@ class ArticleType extends AbstractType
             ->add('lieu',
                 TextType::class,
                 [
-                    'label' => 'Lieu',
+                    'label' => 'Lieu/Journal',
                     'required' => false
                 ])
             ->add( 'dateDebut',
@@ -48,7 +48,7 @@ class ArticleType extends AbstractType
             ->add('horaire',
                 TextType::class,
                 [
-                    'label' => 'Horaires',
+                    'label' => 'Horaires/Date',
                     'required' => false
                 ])
             ->add('contenu',
