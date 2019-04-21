@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Commentaires de l'article "{{ article }}"</h1>
+    <h1>Commentaires du tableau "{{ tableau.titre }}"</h1>
 
     <table class="table">
         <tr>
@@ -10,10 +10,10 @@
             <th>Date</th>
             <th></th>
         </tr>
-        {% for comment in article.comments %}
+        {% for comment in tableau.comments %}
             <tr>
                 <td>{{ comment.user }}</td>
-                <td>{{ comment.content|nl2br }}</td>
+                <td>{{ comment.contenu|nl2br }}</td>
                 <td>{{ comment.datePublication|date('d/m/Y H:i') }}</td>
                 <td>
                     <a href="{{ path('app_admin_comment_delete', {'id': comment.id}) }}"
