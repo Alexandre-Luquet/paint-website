@@ -35,7 +35,7 @@
                             <td>{{ tableau.technique }}</td>
                             <td>{{ tableau.format }}</td>
                             <td>{{ tableau.description }}</td>
-                            <a href="{{ path('app_admin_comment_index', {'id': tableau.id}) }}"><td>{{ tableau.comments|length }}</td></a>
+                            <td><a href="{{ path('app_admin_comment_index', {'id': tableau.id}) }}">{{ tableau.comments|length }}</a></td>
                             <td>
                                 <a class="btn btn-primary btn-sm" href="{{ path('app_admin_tableau_edit', {'id': tableau.id}) }}">
                                     Modifier

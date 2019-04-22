@@ -27,6 +27,19 @@ class CommentController extends AbstractController
             ]
         );
     }
+    /**
+     * @Route("/")
+     */
+    public function list()
+    {
+        $repository = $this->getDoctrine()->getRepository(Comment::class);
+
+        $comments = $repository->findBy([], ['tableau' => 'ASC']);
+        return $this->render('admin/comment/list.html.twig',
+            [
+                'comments' => $comments
+            ]);
+    }
 
     /**
      * @Route("/suppression/{id}")

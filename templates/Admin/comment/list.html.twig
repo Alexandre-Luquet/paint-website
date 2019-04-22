@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des commentaires{% endblock %}
+
+{% block body %}
+    {# NAV  #}
+    <div class="menu">
+        <div class="bar"></div>
+    </div>
+    <div class="overlay"></div>
+    <header>
+        {% include 'nav.html.twig' %}
+    </header>
+
+    <h1 class="text-center mt-5">Liste des commentaires</h1>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-10 col-sm-12 mx-auto text-center">
+                <table class="table table-striped mt-3">
+                    <tr>
+                        <th>Tableau</th>
+                        <th>Commentaire</th>
+                        <th>Utilisateur</th>
+                        <th>Date de publication</th>
+                    </tr>
+                    {% for comment in comments %}
+                        <tr>
+                            <td>{{ comment.tableau.titre }}</td>
+                            <td>{{ comment.contenu }}</td>
+                            <td>{{ comment.user }}</td>
+                            <td>{{ comment.datePublication|date('d/m/y') }}</td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" href="{{ path('app_admin_comment_index', {'id': comment.id}) }}">
+                                    Modifier
+                                </a>
+                                <a href="{{ path('app_admin_comment_delete', {'id': comment.id}) }}" class="btn btn-delete btn-danger btn-sm">
+                                    Supprimer
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
