@@ -24,7 +24,8 @@ class TableauType extends AbstractType
             ->add('image',
                 FileType::class,
                 [
-                    'label' => 'Tableau'
+                    'label' => 'Tableau',
+                    'data_class' => null
                 ])
             ->add('annee',
                 IntegerType::class,

@@ -33,6 +33,13 @@ class Comment
     private $user;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tableau", inversedBy="comments")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $tableau;
+
+
+    /**
      * @return mixed
      */
     public function getUser()
@@ -47,12 +54,6 @@ class Comment
     {
         $this->user = $user;
     }
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tableau", inversedBy="comments")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $tableau;
 
     public function getId(): ?int
     {

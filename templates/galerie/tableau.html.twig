@@ -10,6 +10,12 @@
     {% include 'nav.html.twig' %}
 </header>
 
+    {% if  is_granted('ROLE_ADMIN')%}
+        <a class="btn btn-primary right marginbtnedit" href="/admin/tableau/edition/{{ tableau.id}}">
+            Modifier
+        </a>
+    {% endif %}
+
 <div>
     <h3 class="text-center mt-5 h3-bio">{{ tableau.getTitre }}</h3>
     <p>
@@ -17,8 +23,37 @@
         {{ tableau.getAnnee }}<br>
         {{ tableau.getTechnique }}<br>
         {{ tableau.getFormat }}<br>
-        {{ tableau.getDescription }}<br>
-
+        {{ tableau.getDescription|nl2br }}<br>
     </p>
+
+    {% if app.user is null %}
+        <div class="alert alert-info">
+            Vous devez être connecté pour publier un commentaire.
+        </div>
+    {% else %}
+        {{ form_start(form) }}
+        {{ form_row(form.contenu) }}
+        <div class="text-right">
+            <button type="submit" class="btn btn-primary">
+                Envoyer
+            </button>
+        </div>
+        {{ form_end(form) }}
+    {% endif %}
+
+    {% for comment in tableau.comments %}
+        <h5>
+            {{ comment.user }}
+            <small>{{ comment.datePublication|date('d/m/Y H:i') }}</small>
+        </h5>
+        <div class="card bg-light mb-3">
+            <div class="card-body">
+                {{ comment.contenu|nl2br }}
+            </div>
+        </div>
+    {% else %}
+        <p>Aucun commentaire pour cet article.</p>
+    {% endfor %}
+
 </div>
 {% endblock %}
