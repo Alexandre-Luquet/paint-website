@@ -28,9 +28,6 @@ class BiographieShowController extends AbstractController
         $image = $bio->getPhoto();
         $texte = $bio->getDescription();
 
-        //return new Response('<strong>Photo employée pour la biographie : </strong>'. $image.
-        //'<br><strong>Le contenu de la biographie : </strong>' . $texte);
-
         return $this->render('biographie/index.html.twig', [
             'controller_name' => 'BiographieController',
             'image' => $image,

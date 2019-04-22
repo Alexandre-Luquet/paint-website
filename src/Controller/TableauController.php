@@ -43,13 +43,6 @@ class TableauController extends AbstractController
          * l'inviter à le faire pour pouvoir écrire un commentaire.
          * Sinon, lui afficher un formulaire avec un textarea
          * pour pouvoir écrire un commentaire.
-         * Nécessite une entité Comment avec :
-         * - content (text en bdd)
-         * - publicationDate (datetime)
-         * - user (l'utilisateur qui écrit le commentaire)
-         * - article (l'article sur lequel on écrit le commentaire)
-         * Nécessite le form type qui va avec contenant le textarea,
-         * le contenu du commentaire ne doit pas être vide.
          *
          * Lister les commentaires en dessous, avec nom utilisateur,
          * date de publication, contenu du message

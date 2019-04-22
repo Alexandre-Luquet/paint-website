@@ -29,13 +29,7 @@ class BiographieController extends AbstractController
         Request $request
     ){
 
-        /*
-        $id = 1;
-        $biographie = $this->getDoctrine()
-            ->getRepository(Biographie::class)
-            ->find($id);
-        */
-
+        // Utilisation d'une requête personnalisée pour trouver le dernier id de la table
         $biographie = $this->getDoctrine()
             ->getRepository(Biographie::class)
             ->findLastId();
@@ -58,17 +52,12 @@ dump($biographie->getPhoto());
             $originalImage = null;
         }
 
-
-
         $form = $this->createForm(BiographieType::class, $biographie);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
             if($form->isValid()){
-                //$directory = "images/biographie";
-                //$newFilename = "photo.jpg";
-
                 // Traitement de la photo : recopie du fichier dans le répertoire images puis chemin d'accès dans le champ photo
                 /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
                 //$file = $biographie->getPhoto();
@@ -81,7 +70,6 @@ dump($biographie->getPhoto());
                         $this->getParameter('biographie_directory'),
                         $fileName
                     );
-
 
                     // updates the 'brochure' property to store the PDF file name
                     // instead of its contents

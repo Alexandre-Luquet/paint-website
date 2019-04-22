@@ -16,15 +16,8 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-        /*
-        // Récupération de la première ligne de la table biographie (1 seul enregistrement prévu)
-        $id = 1;
-        $bio = $this->getDoctrine()
-            ->getRepository(Biographie::class)
-            ->find($id);
-        */
 
-
+        // Utilisation d'une requête personnalisée pour trouver le dernier id de la table
         $bio = $this->getDoctrine()
             ->getRepository(Biographie::class)
             ->findLastId();
