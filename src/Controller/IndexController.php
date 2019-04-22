@@ -1,5 +1,4 @@
 <?php
-//okok
 namespace App\Controller;
 
 use App\Entity\Biographie;
@@ -7,8 +6,7 @@ use App\Entity\Tableau;
 use App\Form\ContactType;
 use Doctrine\ORM\Mapping\Index;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request; //néccessaire pour faire une requête?
-//use Symfony\Component\HttpFoundation\Response; //test1
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
@@ -18,23 +16,25 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-       // $caroussel = true;
-        //$caroussel = $this->getDoctrine()-> getRepository(Tableau::class)->findByImage
-        //('Joconde');
+        // Récupération de la première ligne de la table biographie (1 seul enregistrement prévu)
+        $id = 1;
+        $bio = $this->getDoctrine()
+            ->getRepository(Biographie::class)
+            ->find($id);
+
+
+        // Recuperation des images devant servir à construire le carrousel - On utiise l'attribue dédié dans la class (et BdD)
+        $carrousel = $this->getDoctrine()
+            -> getRepository(Tableau::class)
+            ->findByCaroussel(1);
 
 
 
-        //$repository = $this->getDoctrine()
-          //  ->getManager()
-            //->getRepository('SdzBlogBundle:Article');
-        //$article = $repository->findOneBy(array('titre' => 'Mon dernier weekend'));
-// $article est une instance de Article
-
-
-        return $this->render('index/index.html.twig');
-            //[
-             //   'caroussel' => $caroussel
-           //]);
+        return $this->render('index/index.html.twig',
+            [
+               'tableauxCarrousel' => $carrousel,
+                'biographie' => $bio,
+            ]);
     }
 
     /**
