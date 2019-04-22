@@ -12,14 +12,16 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <p class="text-center mt-2 paragraphe-acceuil">L'Artiste</p>
-                    <img src="{{ asset('images/biographie/') }}{{ biographie.photo }}"
-                         alt="Photo artiste"
-                         class="img-thumbnail">
-                    <p class="float-left"><span>{{ biographie.presentation }}</span></p>
-                    {% if  is_granted('ROLE_ADMIN')%}
-                        <a class="btn btn-primary right marginbtnedit" href="{{ path('app_admin_biographie_edit') }}">
-                            Modifier
-                        </a>
+                    {% if biographie is not null %}
+                        <img src="{{ asset('images/biographie/') }}{{ biographie.photo }}"
+                             alt="Photo artiste"
+                             class="img-thumbnail">
+                        <p class="float-left"><span>{{ biographie.presentation }}</span></p>
+                        {% if  is_granted('ROLE_ADMIN')%}
+                            <a class="btn btn-primary right marginbtnedit" href="{{ path('app_admin_biographie_edit') }}">
+                                Modifier
+                            </a>
+                        {% endif %}
                     {% endif %}
                 </div>
                 <div class="col-md-4 col-sm-6">

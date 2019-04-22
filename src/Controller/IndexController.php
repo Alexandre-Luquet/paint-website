@@ -16,13 +16,18 @@ class IndexController extends AbstractController
      */
     public function index()
     {
+        /*
         // Récupération de la première ligne de la table biographie (1 seul enregistrement prévu)
         $id = 1;
         $bio = $this->getDoctrine()
             ->getRepository(Biographie::class)
             ->find($id);
+        */
 
 
+        $bio = $this->getDoctrine()
+            ->getRepository(Biographie::class)
+            ->findLastId();
         // Recuperation des images devant servir à construire le carrousel - On utiise l'attribue dédié dans la class (et BdD)
         $carrousel = $this->getDoctrine()
             -> getRepository(Tableau::class)

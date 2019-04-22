@@ -19,6 +19,25 @@ class BiographieRepository extends ServiceEntityRepository
         parent::__construct($registry, Biographie::class);
     }
 
+    /**
+     * @return Biographie  Retourne la biographie avec le plus haut numéro d'id ou null
+     */
+    public function findLastId()
+    {
+        $arrayLastIdent =  $this->createQueryBuilder('b')
+            ->orderBy('b.id', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+            ;
+        if (isset($arrayLastIdent[0])) {
+            return $arrayLastIdent[0];
+        } else {
+            return null;
+        }
+    }
+
+
     // /**
     //  * @return Biographie[] Returns an array of Biographie objects
     //  */

@@ -14,17 +14,15 @@ class BiographieShowController extends AbstractController
      */
     public function show()
     {
-        $id = 1;
-        // Récupération de la première ligne de la table biographie (1 seul enregistrement prévu)
+        // Utilisation d'une requête personnalisée pour trouver le dernier id de la table
         $bio = $this->getDoctrine()
             ->getRepository(Biographie::class)
-            ->find($id);
+            ->findLastId();
 
-        // Message d'erreur si je n'ai pas trouvé la ligne, donc base non initialisée
+        // Message de remplacement si je n'ai pas trouvé la ligne, donc base non initialisée
         if (!$bio) {
-            throw $this->createNotFoundException(
-                "Pas de biographie trouvée avec l'id  " . $id . " en base de données"
-            );
+            $bio = new Biographie();
+            $bio->setDescription("Aucune biographie saisie, bien vouloir la saisir en tant qu'administrateur via le bouton 'Modifier'");
         }
 
         $image = $bio->getPhoto();

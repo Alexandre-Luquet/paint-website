@@ -29,11 +29,17 @@ class BiographieController extends AbstractController
         Request $request
     ){
 
-        //$biographie= new Biographie();
+        /*
         $id = 1;
         $biographie = $this->getDoctrine()
             ->getRepository(Biographie::class)
             ->find($id);
+        */
+
+        $biographie = $this->getDoctrine()
+            ->getRepository(Biographie::class)
+            ->findLastId();
+
 
         if (is_null($biographie)) {
             $biographie = new Biographie();
@@ -48,6 +54,8 @@ class BiographieController extends AbstractController
                 new File($this->getParameter('biographie_directory') . $originalImage)
             );
 dump($biographie->getPhoto());
+        } else {
+            $originalImage = null;
         }
 
 
