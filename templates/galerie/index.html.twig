@@ -13,10 +13,12 @@
         <div class="container-fluid">
             <h1 class="text-center mt-5 gallerie-title">Ma galerie d'art virtuelle</h1>
             <div class="row raw mt-5">
-                {% for monTableau in galerie %}
-                    <div class="col-lg-2 ml-3 mt-2">
-                        <a href="#" class="btn-article-content"><img src="{{ asset('images/galerie/' ~ monTableau.image) }}" class="rounded float-left" alt="..."></a>
-                        <a href="/tableau/{{ monTableau.id }}" >{{ monTableau.titre }}</a>
+        {% for monTableau in galerie %}
+                    <div class="col-lg-2 ml-3 mt-2 mb-4">
+                        <a class="btn-article-content" href="{{ path('app_admin_tableau_ajaxrequest', {'id': monTableau.id}) }}">
+                            <img src="{{ asset('images/galerie/' ~ monTableau.image) }}" class="rounded float-left" alt="{{ asset('images/galerie/' ~ monTableau.titre) }}">
+                        </a>
+                        <p class="text-center">Le titre de notre tableau</p>
                     </div>
                 {% endfor %}
             </div>
@@ -32,8 +34,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                    </div>
+                    <div class="modal-body"></div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary fermer">Fermer</button>
                     </div>
