@@ -1,12 +1,8 @@
 <h1 class="text-center">{{ tableau.titre }}</h1>
-<p>
-    <em>{{ tableau.publicationDate|date('d/m/Y') }}</em><br>
-
-</p>
 
 {% if tableau.image is not null %}
     <div class="text-center">
-        <img src="{{ asset('images/galerie/' ~ tableau.image) }}" width="100%">
+        <img src="{{ asset('images/galerie/' ~ tableau.image) }}" class="img-modal">
     </div>
 {% endif %}
 
@@ -16,8 +12,8 @@
             <p class="text-center">{{ tableau.technique|nl2br }}</p>
         </div>
         <div>
-            <h5 class="text-center">Taille du tableau</h5>
+            <h5 class="text-center">Dimension</h5>
             <p class="text-center">{{ tableau.format }}</p>
         </div>
-    <a class="btn btn-primary float-right" href="{{ asset('') }}">En Savoir plus</a>
+    <a class="btn btn-primary float-right" href="{{ path('app_tableau_showtableau', {'id': tableau.id}) }}">En Savoir plus</a>
 </div>

@@ -156,7 +156,7 @@ class TableauController extends AbstractController
     public function ajaxRequest(Request $request, Tableau $tableau)
     {
 
-        //if ($request->isXmlHttpRequest()) {
+        if ($request->isXmlHttpRequest()) {
 
             return $this->render(
                 'admin/tableau/ajax_request.html.twig',
@@ -164,8 +164,8 @@ class TableauController extends AbstractController
                     'tableau' => $tableau
                 ]
             );
-//        } else {
-//            throw new NotFoundHttpException();
-//        }
+        } else {
+           throw new NotFoundHttpException();
+       }
     }
 }

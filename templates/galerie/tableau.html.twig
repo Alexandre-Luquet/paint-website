@@ -11,13 +11,15 @@
 </header>
 <div>
     <h3 class="text-center mt-5 h3-bio">{{ tableau.getTitre }}</h3>
-    <p>
-        <img src="{{ asset('images/galerie/' ~ tableau.image) }}"><br>
-        {{ tableau.getAnnee }}<br>
-        {{ tableau.getTechnique }}<br>
-        {{ tableau.getFormat }}<br>
-        {{ tableau.getDescription|nl2br }}<br>
-    </p>
+    <div>
+        <p class="text-center">
+            <img src="{{ asset('images/galerie/' ~ tableau.image) }}" class="img-tableau mt-3">
+        </p>
+        <p class="text-center p-tableau">{{ tableau.getAnnee }}</p>
+        <p class="text-center p-tableau">{{ tableau.getTechnique }}</p>
+        <p class="text-center p-tableau">{{ tableau.getFormat }}</p>
+        <p class="text-center p-tableau">{{ tableau.getDescription|nl2br }}</p>
+    </div>
 
     {% if app.user is null %}
         <div class="alert alert-info">
@@ -26,7 +28,7 @@
     {% else %}
         {{ form_start(form) }}
         {{ form_row(form.contenu) }}
-        <div class="text-right">
+        <div class="text-center">
             <button type="submit" class="btn btn-primary">
                 Envoyer
             </button>
@@ -42,11 +44,11 @@
         <div class="card bg-light mb-3">
             <div class="card-body">
                 {{ comment.contenu|nl2br }}
+    {% else %}
+        <p class="text-center">Aucun commentaire pour cet article.</p>
+    {% endfor %}
             </div>
         </div>
-    {% else %}
-        <p>Aucun commentaire pour cet article.</p>
-    {% endfor %}
 
 </div>
 {% endblock %}
