@@ -12,5 +12,28 @@
     {% include 'nav.html.twig' %}
 </header>
     <h1 class="text-center mt-4">Les Tableaux</h1>
-
+    <table class="table table-striped table-dark mb-0">
+        <tr>
+            <th>Numero</th>
+            <th>Titre</th>
+            <th>Année</th>
+            <th>Technique</th>
+            <th>Description</th>
+            <th>format</th>
+            <th>Date de publication</th>
+            <th>image</th>
+        </tr>
+        {% for tableau in tableaux %}
+            <tr>
+                <td>{{ tableau.id }}</td>
+                <td>{{ tableau.titre }}</td>
+                <td>{{ tableau.annee }}</td>
+                <td>{{ tableau.technique }}</td>
+                <td>{{ tableau.description }}</td>
+                <td>{{ tableau.format }}</td>
+                <td>{{ tableau.publicationDate|date('d/m/Y H:i:s') }}</td>
+                <td><img class="image-tableau" src="{{ asset('images/galerie/' ~ tableau.image) }}" alt=""></td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

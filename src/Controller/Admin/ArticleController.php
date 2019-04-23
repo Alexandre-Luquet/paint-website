@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
+use App\Entity\Tableau;
 use App\Form\ArticleType;
 use App\Form\SearcharticleType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -147,4 +148,5 @@ class ArticleController extends AbstractController
 
         return $this->redirectToRoute('app_admin_article_index');
     }
+
 }
