@@ -77,17 +77,17 @@ $(function() {
 
         var $modal = $('#modal-article-content');
 
-        $modal.hide();
+        $modal.modal('hide');
 
     })
 
-    $('.close').click(function (a) {
+    $('.close').click(function (e) {
 
-        a.preventDefault();
+        e.preventDefault();
 
         var $modal = $('#modal-article-content');
 
-        $modal.hide();
+        $modal.modal('hide');
     })
 
 

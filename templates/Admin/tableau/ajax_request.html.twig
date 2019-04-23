@@ -1,19 +1,15 @@
-<h1>{{ tableau }}</h1>
+<h1>{{ tableau.titre }}</h1>
 <p>
-    Par {{ tableau.titre }},
     <em>{{ tableau.publicationDate|date('d/m/Y') }}</em><br>
-    <strong>
-        Dans <a href="{{ path('app_tableau_index', {'id': tableau.id}) }}">
-            {{ tableau }}
-        </a>
-    </strong>
+
 </p>
 
 {% if tableau.image is not null %}
     <div class="text-center">
-        <img src="{{ asset('images/' ~ tableau.image) }}" width="100%">
+        <img src="{{ asset('images/galerie/' ~ tableau.image) }}" width="100%">
     </div>
 {% endif %}
 
 <p>{{ tableau.technique|nl2br }}</p>x
 <p>{{ tableau.description }}</p>
+<a class="btn btn-primary float-right" href="{{ asset('') }}">En Savoir plus</a>
