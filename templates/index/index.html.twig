@@ -12,10 +12,12 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <p class="text-center mt-2 paragraphe-acceuil">L'Artiste</p>
-                    <a class="ml-5" href="/biographie">
-                        <img src="images/tamara.jpg" alt="..." class="img-thumbnail ml-5">
-                    </a>
-                    <p class="float-left"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At aut consectetur eaque expedita modi nisi non numquam provident quas, quod veniam voluptate. Ipsum, laudantium nesciunt. Culpa eos iure reiciendis suscipit!</span><span>Animi architecto at deleniti dignissimos doloremque, ea minima non quis rem reprehenderit ut, voluptate, voluptates. Architecto dolores fugiat incidunt maiores molestiae qui tempore. A cum neque quisquam, repellendus soluta veritatis!</span></p>
+                    {% if biographie is not null %}
+                    <img src="{{ asset('images/biographie/') }}{{ biographie.photo }}"
+                         alt="Photo artiste"
+                         class="img-thumbnail">
+                    <p class="float-left"><span>{{ biographie.presentation }}</span></p>
+                    {% endif %}
                     {% if  is_granted('ROLE_ADMIN')%}
                         <a class="btn btn-primary right marginbtnedit" href="{{ path('app_admin_biographie_edit') }}">
                             Modifier
@@ -33,46 +35,15 @@
                                 <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
                             </ol>
                             <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <a href="#">
-                                        <img src="images/frankie-cordoba-557829-unsplash.jpg" class="d-block w-100" alt="...">
-                                    </a>
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <p>Titre du tableau</p>
+                                {# Insertion de l'ensemble des tableaux dans le carrousel avec un test pour le premier
+                                élément afin de désigner le premier tableau du carrousel (active) #}
+                                {% for tableau in tableauxCarrousel %}
+                                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                        <img src="{{ asset('images/galerie/') }}{{ tableau.image }}"
+                                             class="d-block w-100"
+                                             alt="{{ tableau.titre }}">
                                     </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="#">
-                                        <img src="images/zulty.jpg" class="d-block w-100" alt="...">
-                                    </a>
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <p>Titre du tableau</p>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="#">
-                                        <img src="images/tamara.jpg" class="d-block w-100" alt="...">
-                                    </a>
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <p>Titre du tableau</p>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="#">
-                                        <img src="images/tr-n-toan-380757-unsplash.jpg" class="d-block w-100" alt="...">
-                                    </a>
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <p>Titre du tableau</p>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="#">
-                                        <img src="images/dylan-mcleod-564445-unsplash.jpg" class="d-block w-100" alt="...">
-                                    </a>
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <p>Titre du tableau</p>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -86,7 +57,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <p class="text-center mt-2 paragraphe-acceuil">Tableaux</p>
+                    <p class="text-center mt-2 paragraphe-acceuil">Ma sélection</p>
                     <div class="tableau">
                         <div>
                             <div class="text-center">
