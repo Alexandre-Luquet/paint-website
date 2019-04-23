@@ -2,12 +2,15 @@
 namespace App\Controller;
 
 use App\Entity\Biographie;
+use App\Entity\Selection;
 use App\Entity\Tableau;
 use App\Form\ContactType;
 use Doctrine\ORM\Mapping\Index;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+
+use Symfony\Component\HttpFoundation\Response;//pour le test1
 
 class IndexController extends AbstractController
 {
@@ -26,14 +29,23 @@ class IndexController extends AbstractController
             -> getRepository(Tableau::class)
             ->findByCarrousel(1);
 
+        $selection = $this->getDoctrine()->getRepository(Selection::class)->find(1);
+
+
 
 
         return $this->render('index/index.html.twig',
             [
                'tableauxCarrousel' => $carrousel,
                 'biographie' => $bio,
+                'selectionA'=> $selection->getTableau1(),
+               'selectionB'=> $selection->getTableau2(),
+                'selectionC'=>$selection->getTableau3(),
+                'selectionD'=>$selection->getTableau4(),
+
             ]);
     }
+
 
     /**
      * @Route("/contact")
