@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use DateTimeInterface;
+use Doctrine\DBAL\Types\DateType;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -150,24 +151,24 @@ class Article
         return $this;
     }
 
-    public function getDateDebut(): ?\DateTimeInterface
+    public function getDateDebut() : DateType
     {
         return $this->dateDebut;
     }
 
-    public function setDateDebut( DateTimeInterface $dateDebut): self
+    public function setDateDebut( DateTime $dateDebut): self
     {
         $this->dateDebut = $dateDebut;
 
         return $this;
     }
 
-    public function getDateFin(): ?\DateTimeInterface
+    public function getDateFin() : DateType
     {
         return $this->dateFin;
     }
 
-    public function setDateFin( DateTimeInterface $dateFin): self
+    public function setDateFin( DateTime $dateFin): self
     {
         $this->dateFin = $dateFin;
 
