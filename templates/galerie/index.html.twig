@@ -18,7 +18,7 @@
                         <a class="btn-article-content" href="{{ path('app_admin_tableau_ajaxrequest', {'id': monTableau.id}) }}">
                             <img src="{{ asset('images/galerie/' ~ monTableau.image) }}" class="rounded float-left" alt="{{ asset('images/galerie/' ~ monTableau.titre) }}">
                         </a>
-                        <a class="text-decoration-none" href="">
+                        <a class="text-decoration-none" href="{{ path('app_tableau_showtableau', {'id': monTableau.id}) }}">
                             <p class="text-center">{{ monTableau.titre }}</p>
                         </a>
                     </div>
