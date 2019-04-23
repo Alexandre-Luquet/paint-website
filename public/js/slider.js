@@ -47,31 +47,80 @@ $(function() {
 ------------------------------------------------ */
 $(function() {
 
-    var $modal = $('#modal-article-content');
 
     $('.btn-article-content').click(function (e) {
 
         e.preventDefault();
 
-        // au click faire apparaitre la modal avec show
-        $modal.show();
+        var href = $(this).attr('href');
+
+        $.get(
+            href,
+            function (response) {
+
+                var $modal = $('#modal-article-content');
+
+                $('.modal-body', $modal).html(response);
+
+                // afficher la modal
+                $modal.modal('show');
+
+            }
+        )
 
 
     });
 
-    $('.close').click(function (ev) {
-
-        ev.preventDefault();
-
-        // au click faire disparaitre la modal avec hide
-        $modal.hide();
-    })
-
-    $('.fermer').click(function(e) {
+    $('.fermer').click(function (e) {
 
         e.preventDefault();
 
-        // au click faire disparaitre la modal avec hide
+        var $modal = $('#modal-article-content');
+
+        $modal.hide();
+
+    })
+
+    $('.close').click(function (a) {
+
+        a.preventDefault();
+
+        var $modal = $('#modal-article-content');
+
+        $modal.hide();
+    })
+
+
+});
+
+
+/*---------------------------------------------------------------
+                        MODAL TABLEAUX ACCEUIL
+--------------------------------------------------------------*/
+
+$(function () {
+
+    let $modal = $('#modal-tableau-content');
+
+    $('.btn-tableau-content').click(function (e) {
+
+        e.preventDefault();
+
+        $modal.show();
+
+    })
+
+    $('.close').click(function (e) {
+
+        e.preventDefault();
+
+        $modal.hide();
+    })
+
+    $('.close-modal').click(function (a) {
+
+        a.preventDefault();
+
         $modal.hide();
     })
 

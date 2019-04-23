@@ -9,13 +9,25 @@
 <header>
     {% include 'nav.html.twig' %}
 </header>
+    <h1>{{ tableau }}</h1>
+    <p>
+        Par {{ tableau.titre }},
+        <em>{{ tableau.publicationDate|date('d/m/Y') }}</em><br>
+        <strong>
+            Dans <a href="{{ path('app_tableau_index', {'id': tableau.id}) }}">
+                {{ tableau }}
+            </a>
+        </strong>
+    </p>
 
-    {% if  is_granted('ROLE_ADMIN')%}
-        <a class="btn btn-primary right marginbtnedit" href="/admin/tableau/edition/{{ tableau.id}}">
-            Modifier
-        </a>
+    {% if tableau.image is not null %}
+        <div class="text-center">
+            <img src="{{ asset('images/' ~ tableau.image) }}" width="100%">
+        </div>
     {% endif %}
 
+    <p>{{ tableau.technique|nl2br }}</p>x
+    <p>{{ tableau.description }}</p>
 <div>
     <h3 class="text-center mt-5 h3-bio">{{ tableau.getTitre }}</h3>
     <p>
