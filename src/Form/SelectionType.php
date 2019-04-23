@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Selection;
+use App\Entity\Tableau;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,22 +17,30 @@ class SelectionType extends AbstractType
             ->add('tableau1',
                 EntityType::class,
                 [
-                    'label' => 'Haut-Gauche'
+                    'label' => 'Haut-Gauche',
+                    'class' => Tableau::class,
+                    'choice_label' => 'titre'
                 ])
             ->add('tableau2',
                 EntityType::class,
                 [
-                    'label' => 'Haut-Droite'
+                    'label' => 'Haut-Droite',
+                    'class' => Tableau::class,
+                    'choice_label' => 'titre'
                 ])
             ->add('tableau3',
                 EntityType::class,
                 [
-                    'label' => 'Bas-Gauche'
+                    'label' => 'Bas-Gauche',
+                    'class' => Tableau::class,
+                    'choice_label' => 'titre'
                 ])
             ->add('tableau4',
                 EntityType::class,
                 [
-                    'label' => 'Bas-Droite'
+                    'label' => 'Bas-Droite',
+                    'class' => Tableau::class,
+                    'choice_label' => 'titre'
                 ])
         ;
     }
