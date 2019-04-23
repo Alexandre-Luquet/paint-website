@@ -1,6 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Catégorie d'articles{% endblock %}
+{% block title %}
+    {% if category.id == 1 %}
+        Mon blog - mes envies
+    {% elseif category.id == 2 %}
+        Mes expos - venez me voir!
+    {% else %}
+        Mes actus presse
+    {% endif %}
+{% endblock %}
 
 {% block body %}
      <body style="background-color: #7efff5;">
@@ -27,7 +35,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ article.titre }}</h5>
                                     <p class="card-text mt-1">{{ article.contenu}}</p>
-                                        <a href="" class="btn btn-primary m-3">Lire la suite</a>
+                                        <a href="{{ asset('article/' ~ article.id) }}" class="btn btn-primary m-3">Lire la suite</a>
                                     {% if  is_granted('ROLE_ADMIN')%}
                                         <a class="btn btn-primary" href="{{ asset('admin/article/edition/') ~ article.id }}">
                                             Modifier
@@ -54,7 +62,7 @@
                         <div class="col-md-8 col-sm-8">
                             <h4 class="card-title mt-4 text-center">{{ article.titre }}</h4>
                             <p class="mt-2">{{ article.contenu}}</p>
-                            <a href="" class="btn btn-primary m-3">Lire la suite</a>
+                            <a href="{{ asset('article/' ~ article.id) }}" class="btn btn-primary m-3">Lire la suite</a>
                             {% if  is_granted('ROLE_ADMIN')%}
                                 <div class="btn-group">
                                 <a class="btn btn-primary" href="{{ asset('admin/article/edition/') ~ article.id }}">
@@ -75,7 +83,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ article.titre }}</h5>
                         <p class="card-text">{{ article.contenu }}</p>
-                        <a href="#" class="btn btn-primary text-right">En savoir plus</a>
+                        <a href="{{ asset('article/' ~ article.id) }}" class="btn btn-primary text-right">En savoir plus</a>
                         {% if  is_granted('ROLE_ADMIN')%}
                             <a class="btn btn-primary" href="{{ asset('admin/article/edition/') ~ article.id }}">
                                 Modifier

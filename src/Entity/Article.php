@@ -67,6 +67,16 @@ class Article
      */
     private $horaire;
 
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $Journal;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $dateParution;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -155,7 +165,7 @@ class Article
         return $this->dateDebut;
     }
 
-    public function setDateDebut( DateTimeInterface $dateDebut): self
+    public function setDateDebut( ?DateTimeInterface $dateDebut): self
     {
         $this->dateDebut = $dateDebut;
 
@@ -167,7 +177,7 @@ class Article
         return $this->dateFin;
     }
 
-    public function setDateFin( DateTimeInterface $dateFin): self
+    public function setDateFin( ?DateTimeInterface $dateFin): self
     {
         $this->dateFin = $dateFin;
 
@@ -182,6 +192,30 @@ class Article
     public function setHoraire(?string $horaire): self
     {
         $this->horaire = $horaire;
+
+        return $this;
+    }
+
+    public function getJournal(): ?string
+    {
+        return $this->Journal;
+    }
+
+    public function setJournal(?string $Journal): self
+    {
+        $this->Journal = $Journal;
+
+        return $this;
+    }
+
+    public function getDateParution(): ?string
+    {
+        return $this->dateParution;
+    }
+
+    public function setDateParution(?string $dateParution): self
+    {
+        $this->dateParution = $dateParution;
 
         return $this;
     }

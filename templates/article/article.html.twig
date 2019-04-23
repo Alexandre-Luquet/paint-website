@@ -1,11 +1,37 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}
-{{ article.titre }}
-{% endblock %}
-
+{% block title %}{{ article.getTitre }}{% endblock %}
 {% block body %}
+    {# NAV  #}
+    <div class="menu">
+        <div class="bar"></div>
+    </div>
+    <div class="overlay"></div>
+    <header>
+        {% include 'nav.html.twig' %}
+    </header>
 
+    {% if  is_granted('ROLE_ADMIN')%}
+        <a class="btn btn-primary right marginbtnedit" href="/admin/article/edition/{{ article.id}}">
+            Modifier
+        </a>
+    {% endif %}
+
+    <div>
+        <h3 class="text-center mt-5 h3-bio">{{ article.titre }}</h3>
+        <p>
+            <img src="{{ asset('images/article/' ~ article.image) }}"><br>
+            {{ article.contenu|nl2br }}<br>
+            {{ article.datePublication|date('d/m/Y') }}<br>
+            {{ article.category }}<br>
+            {% if article.category.id == 2 %}
+                {{ article.dateDebut|date('d/m/Y') }}<br>
+                {{ article.dateFin|date('d/m/Y') }}<br>
+                {{ article.lieu }}<br>
+                {{ article.horaire }}
+            {% elseif article.category.id == 3 %}
+                {{ article.journal }}<br>
+                {{ article.dateParution }}
+            {% endif %}
+        </p>
+    </div>
 {% endblock %}
-
-
