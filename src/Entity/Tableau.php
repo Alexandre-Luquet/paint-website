@@ -61,7 +61,25 @@ class Tableau
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $caroussel;
+    private $carrousel;
+
+    /**
+     * @return mixed
+     */
+    public function getCarrousel()
+    {
+        return $this->carrousel;
+    }
+
+    /**
+     * @param mixed $carrousel
+     * @return Tableau
+     */
+    public function setCarrousel($carrousel)
+    {
+        $this->carrousel = $carrousel;
+        return $this;
+    }
 
     public function __construct()
     {
@@ -184,18 +202,6 @@ class Tableau
     public function setPublicationDate(\DateTimeInterface $publicationDate): self
     {
         $this->publicationDate = $publicationDate;
-
-        return $this;
-    }
-
-    public function getCaroussel(): ?bool
-    {
-        return $this->caroussel;
-    }
-
-    public function setCaroussel(?bool $caroussel): self
-    {
-        $this->caroussel = $caroussel;
 
         return $this;
     }
