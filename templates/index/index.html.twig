@@ -39,7 +39,7 @@
                                 élément afin de désigner le premier tableau du carrousel (active) #}
                                 {% for tableau in tableauxCarrousel %}
                                     <div class="carousel-item {% if loop.first %}active{% endif %}">
-                                        <a href="">
+                                        <a href="/tableau/{{ tableau.id }}">
                                             <img src="{{ asset('images/galerie/') }}{{ tableau.image }}"
                                                  class="d-block w-100"
                                                  alt="{{ tableau.titre }}">
@@ -63,29 +63,29 @@
                     <div class="tableau">
                         <div>
                             <div class="text-center">
-                                <a class="btn-tableau-content" href="">
-                                    <img src="images/zulty.jpg" class="rounded" alt="...">
+                                <a class="btn-tableau-content" href="/tableau/{{ selectionA.id }}">
+                                    <img src="{{ asset('images/galerie/')~selectionA.image }}" class="rounded" alt="{{ selectionA.titre }}">
                                 </a>
                             </div>
                         </div>
                         <div>
                             <div class="text-center">
-                                <a class="btn-tableau-content" href="">
-                                    <img src="images/tamara.jpg" class="rounded" alt="...">
+                                <a class="btn-tableau-content" href="/tableau/{{ selectionB.id }}">
+                                    <img src="{{ asset('images/galerie/')~selectionB.image }}" class="rounded" alt="{{ selectionB.titre }}">
                                 </a>
                             </div>
                         </div>
                         <div>
                             <div class="text-center">
-                                <a class="btn-tableau-content" href="">
-                                    <img src="images/frankie-cordoba-557829-unsplash.jpg" class="rounded" alt="...">
+                                <a class="btn-tableau-content" href="/tableau/{{ selectionC.id }}">
+                                    <img src="{{ asset('images/galerie/')~selectionC.image }}" class="rounded" alt="{{ selectionC.titre }}">
                                 </a>
                             </div>
                         </div>
                         <div>
                             <div class="text-center">
-                                <a class="btn-tableau-content" href="">
-                                    <img src="images/tr-n-toan-380757-unsplash.jpg" class="rounded" alt="...">
+                                <a class="btn-tableau-content" href="/tableau/{{ selectionD.id }}">
+                                    <img src="{{ asset('images/galerie/')~selectionD.image }}" class="rounded" alt="{{ selectionD.titre}}">
                                 </a>
                             </div>
                         </div>
