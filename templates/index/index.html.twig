@@ -15,8 +15,8 @@
                     {% if biographie is not null %}
                     <img src="{{ asset('images/biographie/') }}{{ biographie.photo }}"
                          alt="Photo artiste"
-                         class="img-thumbnail">
-                    <p class="float-left"><span>{{ biographie.presentation }}</span></p>
+                         class="img-thumbnail ml-5">
+                    <p class="float-left"><span>{{ biographie.presentation }}</p>
                     {% endif %}
                     {% if  is_granted('ROLE_ADMIN')%}
                         <a class="btn btn-primary right marginbtnedit" href="{{ path('app_admin_biographie_edit') }}">
@@ -39,9 +39,11 @@
                                 élément afin de désigner le premier tableau du carrousel (active) #}
                                 {% for tableau in tableauxCarrousel %}
                                     <div class="carousel-item {% if loop.first %}active{% endif %}">
-                                        <img src="{{ asset('images/galerie/') }}{{ tableau.image }}"
-                                             class="d-block w-100"
-                                             alt="{{ tableau.titre }}">
+                                        <a href="">
+                                            <img src="{{ asset('images/galerie/') }}{{ tableau.image }}"
+                                                 class="d-block w-100"
+                                                 alt="{{ tableau.titre }}">
+                                        </a>
                                     </div>
                                 {% endfor %}
                             </div>
