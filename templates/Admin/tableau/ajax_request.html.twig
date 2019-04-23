@@ -1,0 +1,23 @@
+<h1 class="text-center">{{ tableau.titre }}</h1>
+<p>
+    <em>{{ tableau.publicationDate|date('d/m/Y') }}</em><br>
+
+</p>
+
+{% if tableau.image is not null %}
+    <div class="text-center">
+        <img src="{{ asset('images/galerie/' ~ tableau.image) }}" width="100%">
+    </div>
+{% endif %}
+
+<div class="container">
+        <div>
+            <h5 class="text-center mt-2">Technique utilisée</h5>
+            <p class="text-center">{{ tableau.technique|nl2br }}</p>
+        </div>
+        <div>
+            <h5 class="text-center">Taille du tableau</h5>
+            <p class="text-center">{{ tableau.format }}</p>
+        </div>
+    <a class="btn btn-primary float-right" href="{{ asset('') }}">En Savoir plus</a>
+</div>

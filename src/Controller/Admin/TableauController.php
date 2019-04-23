@@ -148,4 +148,24 @@ class TableauController extends AbstractController
 
         return $this->redirectToRoute('app_admin_tableau_index');
     }
+
+    /**
+     *
+     * @Route("/ajax/request/{id}")
+     */
+    public function ajaxRequest(Request $request, Tableau $tableau)
+    {
+
+        //if ($request->isXmlHttpRequest()) {
+
+            return $this->render(
+                'admin/tableau/ajax_request.html.twig',
+                [
+                    'tableau' => $tableau
+                ]
+            );
+//        } else {
+//            throw new NotFoundHttpException();
+//        }
+    }
 }

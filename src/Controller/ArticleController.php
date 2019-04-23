@@ -28,9 +28,9 @@ class ArticleController extends AbstractController
     /**
      * @Route("/{id}")
      */
-    public function showExposition($id)
+    public function showArticle($id)
     {
-        // Récupération d'une ligne de la table Exposition correspondant à l'id
+        // Récupération d'une ligne de la table Article correspondant à l'id
         $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
 
         // Message d'erreur si je n'ai pas trouvé la ligne, donc base non initialisée
@@ -42,7 +42,7 @@ class ArticleController extends AbstractController
 
         return $this->render('article/article.html.twig',
             [
-                'exposition' => $article
+                'article' => $article
             ]);
 
     }

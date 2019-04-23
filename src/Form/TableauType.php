@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Tableau;
+use Doctrine\DBAL\Types\BooleanType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -47,6 +49,11 @@ class TableauType extends AbstractType
                 TextType::class,
                 [
                     'label' => 'Dimensions'
+                ])
+            ->add('carrousel',
+                CheckboxType::class,
+                [
+                    'label' => 'Présent dans le carrousel'
                 ])
         ;
     }

@@ -2,10 +2,9 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\DateType;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -67,6 +66,16 @@ class Article
      * @ORM\Column(type="string", length=60, nullable=true)
      */
     private $horaire;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $Journal;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $dateParution;
 
     public function getId(): ?int
     {
@@ -151,24 +160,24 @@ class Article
         return $this;
     }
 
-    public function getDateDebut() : DateType
+    public function getDateDebut(): ?\DateTimeInterface
     {
         return $this->dateDebut;
     }
 
-    public function setDateDebut( DateTime $dateDebut): self
+    public function setDateDebut( ?DateTimeInterface $dateDebut): self
     {
         $this->dateDebut = $dateDebut;
 
         return $this;
     }
 
-    public function getDateFin() : DateType
+    public function getDateFin(): ?\DateTimeInterface
     {
         return $this->dateFin;
     }
 
-    public function setDateFin( DateTime $dateFin): self
+    public function setDateFin( ?DateTimeInterface $dateFin): self
     {
         $this->dateFin = $dateFin;
 
@@ -183,6 +192,30 @@ class Article
     public function setHoraire(?string $horaire): self
     {
         $this->horaire = $horaire;
+
+        return $this;
+    }
+
+    public function getJournal(): ?string
+    {
+        return $this->Journal;
+    }
+
+    public function setJournal(?string $Journal): self
+    {
+        $this->Journal = $Journal;
+
+        return $this;
+    }
+
+    public function getDateParution(): ?string
+    {
+        return $this->dateParution;
+    }
+
+    public function setDateParution(?string $dateParution): self
+    {
+        $this->dateParution = $dateParution;
 
         return $this;
     }

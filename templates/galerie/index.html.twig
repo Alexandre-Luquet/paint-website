@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Mes expositions!{% endblock %}
+{% block title %}Galerie Virtuelle{% endblock %}
 {% block body %}
     {# NAV  #}
     <div class="menu">
@@ -13,10 +13,14 @@
         <div class="container-fluid">
             <h1 class="text-center mt-5 gallerie-title">Ma galerie d'art virtuelle</h1>
             <div class="row raw mt-5">
-                {% for monTableau in galerie %}
-                    <div class="col-lg-2 ml-3 mt-2">
-                        <a href="#" class="btn-article-content"><img src="{{ asset('images/galerie/' ~ monTableau.image) }}" class="rounded float-left" alt="..."></a>
-                        <a href="/tableau/{{ monTableau.id }}" >{{ monTableau.titre }}</a>
+        {% for monTableau in galerie %}
+                    <div class="col-lg-2 ml-3 mt-2 mb-4">
+                        <a class="btn-article-content" href="{{ path('app_admin_tableau_ajaxrequest', {'id': monTableau.id}) }}">
+                            <img src="{{ asset('images/galerie/' ~ monTableau.image) }}" class="rounded float-left" alt="{{ asset('images/galerie/' ~ monTableau.titre) }}">
+                        </a>
+                        <a class="text-decoration-none" href="{{ path('app_tableau_showtableau', {'id': monTableau.id}) }}">
+                            <p class="text-center">{{ monTableau.titre }}</p>
+                        </a>
                     </div>
                 {% endfor %}
             </div>
@@ -27,13 +31,12 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Gallerie</h5>
+                        <h5 class="modal-title">Galerie</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                    </div>
+                    <div class="modal-body"></div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary fermer">Fermer</button>
                     </div>

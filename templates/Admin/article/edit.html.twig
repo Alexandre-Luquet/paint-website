@@ -20,10 +20,16 @@
                 {{ form_row(form.contenu) }}
                 {{ form_row(form.image) }}
                 {{ form_row(form.category) }}
-                {{ form_row(form.lieu) }}
-                {{ form_row(form.dateDebut) }}
-                {{ form_row(form.dateFin) }}
-                {{ form_row(form.horaire) }}
+                <div id="expo" style="display: none">
+                    {{ form_row(form.lieu) }}
+                    {{ form_row(form.dateDebut) }}
+                    {{ form_row(form.dateFin) }}
+                    {{ form_row(form.horaire) }}
+                </div>
+                <div id="presse" style="display: none">
+                    {{ form_row(form.journal) }}
+                    {{ form_row(form.dateParution) }}
+                </div>
         <div class="text-right">
             <button type="submit" class="contact75-form-btn mx-auto ml-3"><i class="far fa-edit"></i>
                 Enregistrer
@@ -34,4 +40,9 @@
         </div>
     </div>
 </body>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/admin_article.js') }}"></script>
 {% endblock %}

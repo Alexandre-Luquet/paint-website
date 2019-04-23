@@ -24,7 +24,7 @@ class IndexController extends AbstractController
         // Recuperation des images devant servir à construire le carrousel - On utiise l'attribue dédié dans la class (et BdD)
         $carrousel = $this->getDoctrine()
             -> getRepository(Tableau::class)
-            ->findByCaroussel(1);
+            ->findByCarrousel(1);
 
 
 

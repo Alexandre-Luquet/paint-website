@@ -9,13 +9,6 @@
 <header>
     {% include 'nav.html.twig' %}
 </header>
-
-    {% if  is_granted('ROLE_ADMIN')%}
-        <a class="btn btn-primary right marginbtnedit" href="/admin/tableau/edition/{{ tableau.id}}">
-            Modifier
-        </a>
-    {% endif %}
-
 <div>
     <h3 class="text-center mt-5 h3-bio">{{ tableau.getTitre }}</h3>
     <p>

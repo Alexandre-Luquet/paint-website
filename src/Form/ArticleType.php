@@ -56,6 +56,16 @@ class ArticleType extends AbstractType
                 [
                     'label' => 'Contenu'
                 ])
+            ->add('journal',
+                TextType::class,
+                [
+                    'label' => 'Journal/site'
+                ])
+            ->add('dateParution',
+                TextType::class,
+                [
+                    'label' => 'Date de parution'
+                ])
             ->add('image',
                 FileType::class,
                 [

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion Accueil{% endblock %}
+
+{% block body %}
+    {# NAV  #}
+    <div class="menu">
+        <div class="bar"></div>
+    </div>
+    <div class="overlay"></div>
+    <header>
+        {% include 'nav.html.twig' %}
+    </header>
+
+    <h1 class="text-center mt-5">Gestion de ma sélection</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.tableau1) }}
+    {{ form_row(form.tableau2) }}
+    {{ form_row(form.tableau3) }}
+    {{ form_row(form.tableau4) }}
+    <button class="submit btn btn-primary">Enregistrer</button>
+    {{ form_end(form) }}
+
+{% endblock %}
