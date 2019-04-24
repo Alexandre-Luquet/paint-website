@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <body style="background-color: #aec5bb;">
+
     <h1>Commentaires du tableau "{{ tableau.titre }}"</h1>
 
-    <table class="table">
+    <table class="table table-striped table-dark mb-0 mt-5" id="admin-table">
         <tr>
             <th>Utilisateur</th>
             <th>Contenu</th>
@@ -24,4 +26,5 @@
             </tr>
         {% endfor %}
     </table>
+    </body>
 {% endblock %}

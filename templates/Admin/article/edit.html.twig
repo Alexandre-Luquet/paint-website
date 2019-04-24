@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
- <body style="background-color: #e6e6e6;">
+<body style="background-color: #aec5bb;">
     {# NAV  #}
     <div class="menu">
         <div class="bar"></div>
@@ -11,10 +11,10 @@
         {% include 'nav.html.twig' %}
     </header>
 
-    <div class="container mt-5">
+    <div class="container mt-2">
         <div class="row">
             <div class="col-md-8 col-sm-12 mx-auto text-center">
-                <h1 class="text-center py-2">Edition des articles</h1>
+                <h1 class="text-center">Edition des articles</h1>
                 {{ form_start(form) }}
                 {{ form_row(form.titre) }}
                 {{ form_row(form.contenu) }}
