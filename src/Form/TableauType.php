@@ -53,7 +53,8 @@ class TableauType extends AbstractType
             ->add('carrousel',
                 CheckboxType::class,
                 [
-                    'label' => 'Présent dans le carrousel'
+                    'label' => 'Présent dans le carrousel',
+                    'required' => false
                 ])
         ;
     }
