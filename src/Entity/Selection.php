@@ -17,24 +17,32 @@ class Selection
     private $id;
 
     /**
+     * @var Tableau
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Tableau")
      * @ORM\JoinColumn(nullable=false)
      */
     private $tableau1;
 
     /**
+     * @var Tableau
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Tableau")
      * @ORM\JoinColumn(nullable=false)
      */
     private $tableau2;
 
     /**
+     * @var Tableau
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Tableau")
      * @ORM\JoinColumn(nullable=false)
      */
     private $tableau3;
 
     /**
+     * @var Tableau
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Tableau")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -91,5 +99,15 @@ class Selection
         $this->tableau4 = $tableau4;
 
         return $this;
+    }
+
+    public function contains(Tableau $tableau)
+    {
+        return in_array($tableau->getId(), [
+            $this->tableau1->getId(),
+            $this->tableau2->getId(),
+            $this->tableau3->getId(),
+            $this->tableau4->getId(),
+        ]);
     }
 }

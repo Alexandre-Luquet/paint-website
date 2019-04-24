@@ -44,7 +44,7 @@ class Tableau
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="tableau")
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="tableau", cascade={"remove"})
      */
     private $comments;
 

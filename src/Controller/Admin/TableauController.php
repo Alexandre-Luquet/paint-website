@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Selection;
 use App\Entity\Tableau;
 use App\Form\TableauType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -136,9 +137,18 @@ class TableauController extends AbstractController
     public function delete(Tableau $tableau){
         $em = $this->getDoctrine()->getManager();
 
+        $selection = $em->find(Selection::class, 1);
+
+        if ($selection->contains($tableau)) {
+            $this->addFlash('error', 'Le tableau est dans la selection');
+
+            return $this->redirectToRoute('app_admin_tableau_index');
+        }
+
+        $filePath = $this->getParameter('galerie_directory').$tableau->getImage();
         // si l'article a une image on la supprime
-        if (!is_null($tableau->getImage())){
-            unlink($this->getParameter('galerie_directory').$tableau->getImage());
+        if (!is_null($tableau->getImage()) && file_exists($filePath)){
+            unlink($filePath);
         }
 
         $em->remove($tableau);
