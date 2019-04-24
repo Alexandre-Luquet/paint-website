@@ -34,10 +34,6 @@ class Category
      */
     private $article;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Blog", mappedBy="category")
-     */
-    private $blogs;
 
     public function __construct()
     {
@@ -99,34 +95,4 @@ class Category
         return $this;
     }
 
-    /**
-     * @return Collection|Blog[]
-     */
-    public function getBlogs(): Collection
-    {
-        return $this->blogs;
-    }
-
-    public function addBlog(Blog $blog): self
-    {
-        if (!$this->blogs->contains($blog)) {
-            $this->blogs[] = $blog;
-            $blog->setCategory($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBlog(Blog $blog): self
-    {
-        if ($this->blogs->contains($blog)) {
-            $this->blogs->removeElement($blog);
-            // set the owning side to null (unless already changed)
-            if ($blog->getCategory() === $this) {
-                $blog->setCategory(null);
-            }
-        }
-
-        return $this;
-    }
 }
