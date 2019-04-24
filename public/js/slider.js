@@ -42,9 +42,6 @@ $(function() {
 /*-----------------------------------------------------------------------
                         Gallerie modal
 ------------------------------------------------------------------------ */
-/*----------------------------------------------
-            GALLERIE MODAL
------------------------------------------------- */
 $(function() {
 
 
@@ -100,11 +97,23 @@ $(function() {
 
 $(function () {
 
-    let $modal = $('#modal-tableau-content');
-
     $('.btn-tableau-content').click(function (e) {
 
         e.preventDefault();
+
+        var href = $(this).attr('href');
+
+        $.get(
+            href,
+            function (response) {
+
+                var $modal = $('#modal-tableau-content');
+
+                $('.modal-body').html(response);
+
+                $modal.modal('show');
+            }
+        )
 
         $modal.show();
 
@@ -114,14 +123,19 @@ $(function () {
 
         e.preventDefault();
 
-        $modal.hide();
+        var $modal = $('#modal-tableau-content');
+
+        $modal.modal('hide');
+
     })
 
     $('.close-modal').click(function (a) {
 
         a.preventDefault();
 
-        $modal.hide();
+        var $modal = $('#modal-tableau-content');
+
+        $modal.modal('hide');
     })
 
 });

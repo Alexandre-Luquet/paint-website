@@ -16,9 +16,14 @@
                 <div class="col-md-4 col-sm-6">
                     <p class="text-center mt-2 paragraphe-acceuil">L'Artiste</p>
                     {% if biographie is not null %}
-                    <img src="{{ asset('images/biographie/') }}{{ biographie.photo }}"
-                         alt="Photo artiste"
-                         class="img-thumbnail ml-5">
+                        <!------------------
+                             LIEN VERS BIO
+                        -------------------->
+                        <a href="{{ path('app_biographieshow_show') }}">
+                            <img src="{{ asset('images/biographie/') }}{{ biographie.photo }}"
+                                 alt="Photo artiste"
+                                 class="img-thumbnail ml-5">
+                        </a>
                     <p class="float-left">{{ biographie.presentation }}</p>
                     {% endif %}
                     {% if  is_granted('ROLE_ADMIN')%}
@@ -36,7 +41,7 @@
                 ------------------------------------------------------->
                 <div class="col-md-4 col-sm-6">
                     <div class="bd-example">
-                        <div id="carouselExampleCaptions" class="carousel slide mt-5" data-ride="carousel">
+                        <div id="carouselExampleCaptions" class="carousel slide mt-5" data-ride="carousel" data-interval="1200">
                             <ol class="carousel-indicators">
                                 <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                                 <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
@@ -82,28 +87,28 @@
                     <div class="tableau">
                         <div>
                             <div class="text-center">
-                                <a class="btn-tableau-content" href="/tableau/{{ selectionA.id }}">
+                                <a class="btn-tableau-content" href="{{ path('app_admin_tableau_ajaxrequest', {'id': selectionA.id}) }}">
                                     <img src="{{ asset('images/galerie/')~selectionA.image }}" class="rounded" alt="{{ selectionA.titre }}">
                                 </a>
                             </div>
                         </div>
                         <div>
                             <div class="text-center">
-                                <a class="btn-tableau-content" href="/tableau/{{ selectionB.id }}">
+                                <a class="btn-tableau-content" href="{{ path('app_admin_tableau_ajaxrequest', {'id': selectionB.id}) }}">
                                     <img src="{{ asset('images/galerie/')~selectionB.image }}" class="rounded" alt="{{ selectionB.titre }}">
                                 </a>
                             </div>
                         </div>
                         <div>
                             <div class="text-center">
-                                <a class="btn-tableau-content" href="/tableau/{{ selectionC.id }}">
+                                <a class="btn-tableau-content" href="{{ path('app_admin_tableau_ajaxrequest', {'id': selectionC.id}) }}}">
                                     <img src="{{ asset('images/galerie/')~selectionC.image }}" class="rounded" alt="{{ selectionC.titre }}">
                                 </a>
                             </div>
                         </div>
                         <div>
                             <div class="text-center">
-                                <a class="btn-tableau-content" href="/tableau/{{ selectionD.id }}">
+                                <a class="btn-tableau-content" href="{{ path('app_admin_tableau_ajaxrequest', {'id': selectionD.id}) }}">
                                     <img src="{{ asset('images/galerie/')~selectionD.image }}" class="rounded" alt="{{ selectionD.titre}}">
                                 </a>
                             </div>
@@ -124,14 +129,12 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
+                        <h5 class="modal-title">Tableaux favoris</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Modal body text goes here.</p>
-                        <a class="btn btn-primary" href="#" role="button">Link</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary close-modal" data-dismiss="modal">

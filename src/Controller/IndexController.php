@@ -56,6 +56,7 @@ class IndexController extends AbstractController
     }
 
 
+
     /**
      * @Route("/contact")
      */
