@@ -14,7 +14,9 @@
 
     <h1 class="text-center mt-5">Gestion de ma sélection</h1>
 
-    <div id="form-selection">
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-8 mx-auto text-center form-contact mt-2">
     {{ form_start(form) }}
     {{ form_row(form.tableau1) }}
     {{ form_row(form.tableau2) }}
@@ -22,6 +24,8 @@
     {{ form_row(form.tableau4) }}
     <button class="submit btn btn-primary">Enregistrer</button>
     {{ form_end(form) }}
+            </div>
+        </div>
     </div>
 </body>
 {% endblock %}
