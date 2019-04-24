@@ -138,7 +138,7 @@ class ArticleController extends AbstractController
 
         // si l'article a une image on la supprime
         if (!is_null($article->getImage())){
-            unlink($this->getParameter('upload_dir').$article->getImage());
+            unlink($this->getParameter('article_directory').$article->getImage());
         }
 
         $em->remove($article);
