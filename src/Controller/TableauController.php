@@ -7,6 +7,7 @@ use App\Entity\Comment;
 use App\Form\CommentType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -85,5 +86,24 @@ class TableauController extends AbstractController
                 'tableau' => $tableau,
                 'form' => $form->createView(),
             ]);
+    }
+    /**
+     *
+     * @Route("/ajax/request/{id}")
+     */
+    public function ajaxRequest(Request $request, Tableau $tableau)
+    {
+
+        if ($request->isXmlHttpRequest()) {
+
+            return $this->render(
+                'galerie/ajax_request.html.twig',
+                [
+                    'tableau' => $tableau
+                ]
+            );
+        } else {
+            throw new NotFoundHttpException();
+        }
     }
 }
