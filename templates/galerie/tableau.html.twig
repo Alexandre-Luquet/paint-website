@@ -22,8 +22,8 @@
     </div>
 
     {% if app.user is null %}
-        <div class="alert alert-info">
-            Vous devez être connecté pour publier un commentaire.
+        <div class="text-center alert alert-info">
+            Pour publier un commentaire vous devez <a href="{{ path('app_security_register') }}">vous inscrire</a> ou <a href="{{ path('app_security_login') }}">vous connecter</a>.
         </div>
     {% else %}
         {{ form_start(form) }}
