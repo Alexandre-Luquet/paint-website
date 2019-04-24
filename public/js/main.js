@@ -11,8 +11,3 @@ function selector(s) {
     return document.querySelector(s)
 }
 
-.dropdown-toggle.addEventListener(click, function()
-{
-    selector('.dropdown-toggle').classList.toggle('navhidden');
-});
-
