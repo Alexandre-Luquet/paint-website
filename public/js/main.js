@@ -7,8 +7,12 @@ selector(".menu").addEventListener('click', function()
     selector('.overlay').classList.toggle('open');
 });
 
-console.log('Hello');
-
 function selector(s) {
     return document.querySelector(s)
 }
+
+.dropdown-toggle.addEventListener(click, function()
+{
+    selector('.dropdown-toggle').classList.toggle('navhidden');
+});
+

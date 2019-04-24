@@ -11,7 +11,6 @@
 {% endblock %}
 
 {% block body %}
-     <body style="background-color: #7efff5;">
         {# NAV  #}
         <div class="menu">
             <div class="bar"></div>
@@ -78,7 +77,7 @@
             <div class="col-md-8 mx-auto mt-5">
                 <div class="card text-center">
                     <div class="card-header">
-                        <h4>Nom du journal</h4>
+                        <h4>{{ article.journal }}</h4>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{ article.titre }}</h5>
@@ -91,11 +90,10 @@
                         {% endif %}
                     </div>
                     <div class="card-footer text-light text-muted">
-                        Il y'a (publicationDate)
+                        il y'a {{ article.datePublication|date('d/m/Y') }}
                     </div>
                 </div>
             </div>
             {% endif %}
         {% endfor %}
-     </body>
         {% endblock %}
