@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #aec5bb !important;
+}
+
 html{
     font-size: 16px;
     font-family: "Roboto", sans-serif;
@@ -54,7 +58,7 @@ header{
     position: absolute;
     width: 3em;
     height: 2px;
-    background-color: mediumspringgreen;
+    background-color: mediumpurple;
     top: 0;
     left: 0;
     right: 0;
@@ -97,7 +101,7 @@ nav{
     text-transform: uppercase;
     background-color: #fff;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
-    overflow: visible;
+    overflow: hidden;
 }
 
 nav ul{
@@ -119,7 +123,7 @@ a > i {
 
 .nav-link{
     font-size: 0.85rem;
-    color: mediumslateblue;
+    color: mediumpurple;
     margin-right: 0.9rem;
     padding: 0 0.7rem;
     display: block;
@@ -138,7 +142,7 @@ a > i {
 }
 
 .nav-link::after{
-    background-color: mediumslateblue;
+    background-color: mediumpurple;
     content: attr(data-text);
     position: absolute;
     left: 0;
@@ -221,7 +225,7 @@ a > i {
     }
 
     .nav-link::after{
-        background-color: mediumslateblue;
+        background-color: mediumpurple;
         content: attr(data-text);
         position: absolute;
         text-align: center;
@@ -581,4 +585,31 @@ button > i {
 .p-tableau {
     font-weight: 600;
     color: #000;
+}
+
+/*--------------------------------------------------------------------------------------
+                                    GESTION ADMIN STYLE TABLE + BTN AJOUT
+ ---------------------------------------------------------------------------------------*/
+
+#btn-admin{
+    background-color: #40a9b5 !important;
+}
+
+#admin-table{
+    background-color: #255c50 !important;
+}
+
+/*------------------------------------------------------------------------------------------------------------------
+                                            ADMIN SELECTION
+ ------------------------------------------------------------------------------------------------------------------*/
+
+#form-selection{
+    background-color: #18391e;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------
+                                            TOGGLE OVERFLOW NAV
+-------------------------------------------------------------------------------------------------------------------- */
+.navhidden{
+    overflow: visible;
 }

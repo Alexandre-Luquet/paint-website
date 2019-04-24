@@ -15,25 +15,23 @@
             Modifier
         </a>
     {% endif %}
-
-    <div>
-        <h3 class="text-center mt-5 h3-bio">{{ article.titre }}</h3>
-        <p>
-            {% if article.image is not empty %}
-            <img src="{{ asset('images/article/' ~ article.image) }}"><br>
-            {% endif %}
-            {{ article.contenu|nl2br }}<br>
-            {{ article.datePublication|date('d/m/Y') }}<br>
-            {{ article.category }}<br>
-            {% if article.category.id == 2 %}
-                {{ article.dateDebut|date('d/m/Y') }}<br>
-                {{ article.dateFin|date('d/m/Y') }}<br>
-                {{ article.lieu }}<br>
-                {{ article.horaire }}
-            {% elseif article.category.id == 3 %}
-                {{ article.journal }}<br>
-                {{ article.dateParution }}
-            {% endif %}
-        </p>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 col-sm-12 mx-auto text-center">
+                <div class="card text-center">
+                    {% if article.image is not empty %}
+                        <img class="card-img-top img-fluid" src="{{ asset('images/article/' ~ article.image) }}" alt="Card image cap">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article.titre }}</h5>
+                        <p class="card-text mt-1">{{ article.contenu}}</p>
+                        <p class="card-footer">
+                            Lieu : {{ article.lieu }} à {{ article.horaire }}
+                            commence le {{ article.dateDebut|date('d/m/y')}},
+                            fini le {{ article.dateFin|date('d/m/y') }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

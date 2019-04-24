@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Gestion Accueil{% endblock %}
-
 {% block body %}
     {# NAV  #}
+<body style="background-color: #aec5bb;">
     <div class="menu">
         <div class="bar"></div>
     </div>
@@ -14,6 +14,7 @@
 
     <h1 class="text-center mt-5">Gestion de ma sélection</h1>
 
+    <div id="form-selection">
     {{ form_start(form) }}
     {{ form_row(form.tableau1) }}
     {{ form_row(form.tableau2) }}
@@ -21,5 +22,6 @@
     {{ form_row(form.tableau4) }}
     <button class="submit btn btn-primary">Enregistrer</button>
     {{ form_end(form) }}
-
+    </div>
+</body>
 {% endblock %}
