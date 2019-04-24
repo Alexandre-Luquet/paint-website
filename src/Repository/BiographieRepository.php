@@ -24,14 +24,19 @@ class BiographieRepository extends ServiceEntityRepository
      */
     public function findLastId()
     {
-        $arrayLastIdent =  $this->createQueryBuilder('b')
+        /**
+         * On recherche l'ensemble des biographie, on les tri par ordre décroissant pour avoir la plus récente en premier
+         * on ne conserve que la première ligne = le dernier id créé
+        */
+        $arrayLastId =  $this->createQueryBuilder('b')
             ->orderBy('b.id', 'DESC')
             ->setMaxResults(1)
             ->getQuery()
             ->getResult()
             ;
-        if (isset($arrayLastIdent[0])) {
-            return $arrayLastIdent[0];
+        // si pas d'enregistrement ( = table vide) alors on retourne null
+        if (isset($arrayLastId[0])) {
+            return $arrayLastId[0];
         } else {
             return null;
         }

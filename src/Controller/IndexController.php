@@ -10,8 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-use Symfony\Component\HttpFoundation\Response;//pour le test1
-
 class IndexController extends AbstractController
 {
     /**
@@ -20,15 +18,27 @@ class IndexController extends AbstractController
     public function index()
     {
 
-        // Utilisation d'une requête personnalisée pour trouver le dernier id de la table
+        // Récupération des éléments nécessaires pour la page d'accueil
+
+        /**
+         * Récupération des informations nécessaires pour la biographie
+         * Utilisation d'une requête PERSONNALISEE pour trouver le dernier id de la table Biographie
+        */
         $bio = $this->getDoctrine()
             ->getRepository(Biographie::class)
             ->findLastId();
-        // Recuperation des images devant servir à construire le carrousel - On utiise l'attribue dédié dans la class (et BdD)
+
+        /**
+         * Recuperation des tableaux devant servir à construire le carrousel
+         * On utilise l'attribut de la base de données dédié (carrousel = booleen)
+        */
         $carrousel = $this->getDoctrine()
             -> getRepository(Tableau::class)
             ->findByCarrousel(1);
 
+        /**
+         * Recuperation des tableaux à afficher dans "Ma sélection" via l'objet "Selection"
+         */
         $selection = $this->getDoctrine()->getRepository(Selection::class)->find(1);
 
 
@@ -36,13 +46,12 @@ class IndexController extends AbstractController
 
         return $this->render('index/index.html.twig',
             [
-               'tableauxCarrousel' => $carrousel,
+                'tableauxCarrousel' => $carrousel,
                 'biographie' => $bio,
                 'selectionA'=> $selection->getTableau1(),
-               'selectionB'=> $selection->getTableau2(),
+                'selectionB'=> $selection->getTableau2(),
                 'selectionC'=>$selection->getTableau3(),
                 'selectionD'=>$selection->getTableau4(),
-
             ]);
     }
 
