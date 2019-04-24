@@ -14,14 +14,25 @@
             <h1 class="text-center mt-5 gallerie-title">Ma galerie d'art virtuelle</h1>
             <div class="row raw mt-5">
         {% for monTableau in galerie %}
-                    <div class="col-lg-2 ml-3 mt-2 mb-4">
-                        <a class="btn-article-content" href="{{ path('app_tableau_ajaxrequest', {'id': monTableau.id}) }}">
-                            <img src="{{ asset('images/galerie/' ~ monTableau.image) }}" class="rounded float-left" alt="{{ asset('images/galerie/' ~ monTableau.titre) }}">
-                        </a>
-                        <a class="text-decoration-none" href="{{ path('app_tableau_showtableau', {'id': monTableau.id}) }}">
-                            <p class="text-center">{{ monTableau.titre }}</p>
-                        </a>
-                    </div>
+{#                    <div class="col-lg-2 ml-3 mt-2 mb-4">#}
+{#                        <a class="btn-article-content" href="{{ path('app_tableau_ajaxrequest', {'id': monTableau.id}) }}">#}
+{#                            <img src="{{ asset('images/galerie/' ~ monTableau.image) }}" class="rounded float-left" alt="{{ asset('images/galerie/' ~ monTableau.titre) }}">#}
+{#                        </a>#}
+{#                        <a class="text-decoration-none" href="{{ path('app_tableau_showtableau', {'id': monTableau.id}) }}">#}
+{#                            <p class="text-center">{{ monTableau.titre }}</p>#}
+{#                        </a>#}
+{#                    </div>#}
+
+            <div class="card col-lg-2 ml-3 mt-2 mb-4" style="width: 18rem; background-color: transparent; border: none">
+                <a class="btn-article-content" href="{{ path('app_tableau_ajaxrequest', {'id': monTableau.id}) }}">
+                <img class="card-img-top" src="{{ asset('images/galerie/' ~ monTableau.image) }}" alt="Card image cap">
+                </a>
+                <div class="card-body">
+                    <p class="card-text text-center"><a class="text-decoration-none" href="{{ path('app_tableau_showtableau', {'id': monTableau.id}) }}">
+                    {{ monTableau.titre }}
+                    </a></p>
+                </div>
+            </div>
                 {% endfor %}
             </div>
         </div>
