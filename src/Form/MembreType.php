@@ -45,7 +45,7 @@ class MembreType extends AbstractType
                         [
                             'Membre' => 'ROLE_USER',
                             'Admin' => 'ROLE_ADMIN'
-                        ]
+                        ],
                 ]
 
             );

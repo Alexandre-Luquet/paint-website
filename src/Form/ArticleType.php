@@ -59,12 +59,14 @@ class ArticleType extends AbstractType
             ->add('journal',
                 TextType::class,
                 [
-                    'label' => 'Journal/site'
+                    'label' => 'Journal/site',
+                    'required' => false
                 ])
             ->add('dateParution',
                 TextType::class,
                 [
-                    'label' => 'Date de parution'
+                    'label' => 'Date de parution',
+                    'required' => false
                 ])
             ->add('image',
                 FileType::class,

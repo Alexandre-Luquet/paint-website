@@ -21,6 +21,20 @@
         <p class="text-center p-tableau">{{ tableau.getDescription|nl2br }}</p>
     </div>
 
+    {#affichage des messages flash#}
+    {% for type, messages in app.session.flashBag.all %}
+        {% for message in messages %}
+            {#pour la classe alert danger de bootstrap#}
+            {% if type == 'error' %}
+                {% set type = 'danger' %}
+            {% endif %}
+            <div class="alert alert-{{ type }} mt-2 text-center">
+                {{ message|raw }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
     {% if app.user is null %}
         <div class="text-center alert alert-info">
             Pour publier un commentaire vous devez <a href="{{ path('app_security_register') }}">vous inscrire</a> ou <a href="{{ path('app_security_login') }}">vous connecter</a>.

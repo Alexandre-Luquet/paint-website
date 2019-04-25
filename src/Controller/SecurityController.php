@@ -23,7 +23,8 @@ class SecurityController extends AbstractController
         UserPasswordEncoderInterface $passwordEncoder
     ){
         $user= new User();
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserType::class, $user, [
+            'validation_groups' => ['Default', 'inscription']]); // Permet de définir le groupe dans lequel il sera non necessaire de mettre le mot de passe/ permet la modif de profil
 
         $form->handleRequest($request);
 

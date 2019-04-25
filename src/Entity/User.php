@@ -69,7 +69,7 @@ class User implements UserInterface
      *
      * @var string
      *
-     * @Assert\NotBlank(message="Le mot de passe est obligatoire")
+     * @Assert\NotBlank(message="Le mot de passe est obligatoire", groups={"inscription"}) //groups permet de ne pas avoir a definir le mot de passe dans ce groupe (voir le form de creation)
      */
     private $plainPassword;
 

@@ -14,6 +14,19 @@
     </header>
 
     <h1 class="text-center mt-5"> Modification de l'utilisateur </h1>
+
+    {#affichage des messages flash#}
+    {% for type, messages in app.session.flashBag.all %}
+        {% for message in messages %}
+            {#pour la classe alert danger de bootstrap#}
+            {% if type == 'error' %}
+                {% set type = 'danger' %}
+            {% endif %}
+            <div class="alert alert-{{ type }} mt-2 text-center">
+                {{ message|raw }}
+            </div>
+        {% endfor %}
+    {% endfor %}
 <div class="container mt-5">
     <div class="row">
         <div class="col-8 mx-auto text-center">

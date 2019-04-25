@@ -15,27 +15,41 @@
         <div class="row">
             <div class="col-md-8 col-sm-12 mx-auto text-center">
                 <h1 class="text-center mt-5 pb-4">Edition des articles</h1>
-                {{ form_start(form) }}
-                {{ form_row(form.titre) }}
-                {{ form_row(form.contenu) }}
-                {{ form_row(form.image) }}
-                {{ form_row(form.category) }}
-                <div id="expo" style="display: none">
+
+                {#affichage des messages flash#}
+                {% for type, messages in app.session.flashBag.all %}
+                    {% for message in messages %}
+                        {#pour la classe alert danger de bootstrap#}
+                        {% if type == 'error' %}
+                            {% set type = 'danger' %}
+                        {% endif %}
+                        <div class="alert alert-{{ type }} mt-2">
+                            {{ message|raw }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+
+                    {{ form_start(form) }}
+                    {{ form_row(form.titre) }}
+                    {{ form_row(form.contenu) }}
+                    {{ form_row(form.image) }}
+                    {{ form_row(form.category) }}
+                    <div id="expo" style="display: none">
                     {{ form_row(form.lieu) }}
                     {{ form_row(form.dateDebut) }}
                     {{ form_row(form.dateFin) }}
                     {{ form_row(form.horaire) }}
-                </div>
-                <div id="presse" style="display: none">
+                    </div>
+                    <div id="presse" style="display: none">
                     {{ form_row(form.journal) }}
                     {{ form_row(form.dateParution) }}
-                </div>
-        <div class="text-right">
-            <button type="submit" class="contact75-form-btn mx-auto ml-3"><i class="far fa-edit"></i>
-                Enregistrer
-            </button>
-        </div>
-        {{ form_end(form) }}
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="contact75-form-btn mx-auto ml-3"><i class="far fa-edit"></i>
+                         Enregistrer
+                        </button>
+                    </div>
+                    {{ form_end(form) }}
             </div>
         </div>
     </div>
