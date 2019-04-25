@@ -48,7 +48,7 @@ class IndexController extends AbstractController
             [
                 'tableauxCarrousel' => $carrousel,
                 'biographie' => $bio,
-                'selectionA'=> $selection->getTableau1(),
+                'selectionA'=> $selection->getTableau1(),//$selection contient le 4 quadri et ici je récupére le premier
                 'selectionB'=> $selection->getTableau2(),
                 'selectionC'=>$selection->getTableau3(),
                 'selectionD'=>$selection->getTableau4(),
