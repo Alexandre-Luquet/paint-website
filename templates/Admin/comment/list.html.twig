@@ -33,7 +33,7 @@
                             <td>{{ comment.user }}</td>
                             <td>{{ comment.datePublication|date('d/m/y') }}</td>
                             <td class="d-flex justify-content-center">
-                                <a class="btn btn-primary btn-sm mr-3" href="{{ path('app_admin_comment_index', {'id': comment.id}) }}">
+                                <a class="btn btn-primary btn-sm mr-3" href="{{ path('app_admin_comment_edit', {'id': comment.id}) }}">
                                     Modifier
                                 </a>
                                 <a href="{{ path('app_admin_comment_delete', {'id': comment.id}) }}" class="btn btn-delete btn-danger btn-sm">
